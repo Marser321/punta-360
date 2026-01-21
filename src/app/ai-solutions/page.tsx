@@ -181,21 +181,18 @@ export default function AISolutionsPage() {
                             </Link>
                         </div>
 
-                        {/* Creative Studio Third (Secondary) */}
-                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-amber-500/50 transition-all group flex flex-col h-full opacity-60 hover:opacity-100">
-                            <div className="h-16 w-16 rounded-2xl bg-amber-500/20 flex items-center justify-center mb-8 border border-amber-500/30 group-hover:scale-110 transition-transform">
-                                <Zap className="w-8 h-8 text-amber-500" />
+                        {/* Marketing Intelligence (Replaces Creative Lab) */}
+                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-amber-500/50 transition-all group flex flex-col h-full">
+                            <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-8 shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform">
+                                <Search className="w-8 h-8 text-white" />
                             </div>
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-2xl font-bold text-white">Creative Lab</h3>
-                                <Badge variant="outline" className="text-[10px] text-amber-500 border-amber-500/30">EXPERIMENTAL</Badge>
-                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4">Marketing Intelligence</h3>
                             <p className="text-white/50 mb-8 flex-grow">
-                                Prototipado rápido de marketing. Herramientas auxiliares para la generación de activos visuales para redes sociales.
+                                Consejos de marketing personalizados basados en investigación de mercado. Análisis de tendencias, precios competitivos, canales óptimos y estrategias que funcionan para tu zona específica.
                             </p>
-                            <Link href="/dashboard/creative-studio">
-                                <Button variant="ghost" className="w-full text-white/40 hover:text-white hover:bg-white/5 font-bold rounded-xl">
-                                    Probar Herramientas Visuales
+                            <Link href="/dashboard/marketing-intelligence">
+                                <Button className="w-full bg-amber-500 hover:bg-amber-600 text-black font-black rounded-xl uppercase tracking-widest">
+                                    Ver Estrategia Personalizada
                                 </Button>
                             </Link>
                         </div>

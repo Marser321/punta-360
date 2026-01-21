@@ -43,9 +43,9 @@ const routes = [
         badge: 2
     },
     {
-        label: "Inteligencia",
+        label: "Marketing IA",
         icon: Sparkles,
-        href: "/creative-studio",
+        href: "/dashboard/marketing-intelligence",
         color: "text-amber-400",
     },
 ]
