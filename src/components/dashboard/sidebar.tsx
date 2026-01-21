@@ -8,6 +8,7 @@ import { LayoutDashboard, Home, ShoppingBag, Menu, Users, Store, Bot } from "luc
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
+import { Logo } from "@/components/ui/logo"
 
 const routes = [
     {
@@ -58,11 +59,7 @@ export function DashboardSidebar() {
         <div className="space-y-4 py-4 flex flex-col h-full bg-transparent text-white">
             <div className="px-3 py-2 flex-1">
                 <Link href="/dashboard" className="flex items-center pl-3 mb-14">
-                    <div className="relative w-8 h-8 mr-4">
-                        {/* Logo Placeholder */}
-                        <div className="absolute bg-gradient-to-tr from-cyan-400 to-purple-500 rounded-full w-full h-full flex items-center justify-center text-white font-bold shadow-lg shadow-cyan-500/50">P</div>
-                    </div>
-                    <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">Punta360</h1>
+                    <Logo size="md" />
                 </Link>
                 <div className="space-y-1">
                     {routes.map((route) => (
@@ -89,7 +86,7 @@ export function DashboardSidebar() {
             </div>
             <div className="px-3 py-2">
                 <div className="glass-card rounded-2xl p-4 border border-white/5">
-                    <div className="flex items-center gap-3 mb-3">
+                    <a href="mailto:soporte@punta360.com" className="flex items-center gap-3 mb-3 hover:bg-white/5 p-2 rounded-lg transition-colors cursor-pointer block">
                         <div className="h-8 w-8 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center">
                             <span className="text-xs font-bold">?</span>
                         </div>
@@ -97,8 +94,18 @@ export function DashboardSidebar() {
                             <p className="text-sm font-bold text-white">Ayuda</p>
                             <p className="text-[10px] text-zinc-400">Soporte 24/7</p>
                         </div>
-                    </div>
-                    <Button size="sm" className="w-full bg-white/10 hover:bg-white/20 text-white border-0 backdrop-blur-md">Contactar</Button>
+                    </a>
+
+                    <button
+                        onClick={async () => {
+                            const { supabase } = await import("@/lib/supabase/client")
+                            await supabase.auth.signOut()
+                            window.location.href = "/"
+                        }}
+                        className="w-full bg-white/5 hover:bg-white/10 text-white text-xs font-medium py-2 rounded-lg transition-colors border border-white/5"
+                    >
+                        Cerrar Sesión
+                    </button>
                 </div>
             </div>
         </div>

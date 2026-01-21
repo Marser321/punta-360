@@ -370,3 +370,67 @@
     background-color: transparent;
   }
 }
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide UI elements */
+  button,
+  nav,
+  header,
+  footer,
+  .print-hidden,
+  .fixed,
+  .sticky,
+  .glass,
+  .glass-card,
+  .glass-input {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Specific hides */
+  .fixed.top-0,
+  .fixed.bottom-0,
+  .z-40,
+  .z-50,
+  /* Overlays */
+  [role="dialog"]
+
+  /* Modals */
+    {
+    display: none !important;
+  }
+
+  /* Ensure content is visible */
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 20px !important;
+  }
+
+  /* Text colors */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  div {
+    color: black !important;
+    text-shadow: none !important;
+  }
+}

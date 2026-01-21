@@ -18,6 +18,7 @@ import {
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ParallaxSection } from "@/components/ui/parallax-section"
+import { Logo } from "@/components/ui/logo"
 
 const benefits = [
     {
@@ -73,6 +74,13 @@ export default function OwnersLandingPage() {
                 className="min-h-[90vh]"
                 overlayClass="bg-gradient-to-b from-black/60 via-black/40 to-black/90"
             >
+                {/* Branding */}
+                <div className="absolute top-6 left-6 z-30">
+                    <Link href="/">
+                        <Logo />
+                    </Link>
+                </div>
+
                 <div className="container mx-auto px-4 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -98,7 +106,7 @@ export default function OwnersLandingPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/owner/register">
+                            <Link href="/register">
                                 <Button size="lg" className="bg-white text-black font-bold text-lg px-8 py-6 rounded-full shadow-2xl hover:bg-gray-200 transition-all">
                                     Quiero Vender / Alquilar
                                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -205,7 +213,7 @@ export default function OwnersLandingPage() {
                                 Un proceso diseñado para tu tranquilidad y resultados máximos.
                             </p>
                         </div>
-                        <Link href="/owner/register">
+                        <Link href="/register">
                             <Button variant="link" className="text-amber-400 text-lg p-0 hover:text-white transition-colors">
                                 Ver detalles del proceso <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
@@ -294,7 +302,7 @@ export default function OwnersLandingPage() {
                         Agenda una tasación gratuita y descubre el verdadero potencial de tu propiedad en el mercado actual.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/owner/register">
+                        <Link href="/register">
                             <Button size="lg" className="bg-black text-white font-bold text-lg px-10 py-7 rounded-full hover:scale-105 transition-transform">
                                 Agendar Tasación
                             </Button>
@@ -309,10 +317,13 @@ export default function OwnersLandingPage() {
             {/* Footer */}
             <footer className="py-12 bg-black border-t border-white/10 relative z-20">
                 <div className="container mx-auto px-4 text-center">
+                    <div className="flex justify-center mb-8">
+                        <Logo />
+                    </div>
                     <div className="flex justify-center gap-8 mb-8 text-white/40">
-                        <Link href="#" className="hover:text-white transition-colors">Términos</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Privacidad</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Contacto</Link>
+                        <Link href="/" className="hover:text-white transition-colors">Términos</Link>
+                        <Link href="/" className="hover:text-white transition-colors">Privacidad</Link>
+                        <Link href="/" className="hover:text-white transition-colors">Contacto</Link>
                     </div>
                     <p className="text-white/20 text-sm">
                         © 2026 Punta360. Real Estate Excellence.

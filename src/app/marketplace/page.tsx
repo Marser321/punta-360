@@ -125,43 +125,64 @@ export default function MarketplacePage() {
     const [typeFilter, setTypeFilter] = useState("all")
     const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 
+    // Debounce search query
+    const [debouncedSearch, setDebouncedSearch] = useState(searchQuery)
+
+    useEffect(() => {
+        const timer = setTimeout(() => setDebouncedSearch(searchQuery), 500)
+        return () => clearTimeout(timer)
+    }, [searchQuery])
+
     useEffect(() => {
         async function fetchProperties() {
             try {
-                const { data } = await supabase
+                let query = supabase
                     .from('properties')
                     .select('*')
                     .eq('status', 'active')
                     .order('created_at', { ascending: false })
 
-                if (data && data.length > 0) {
+                // Server-side filtering
+                if (debouncedSearch) {
+                    // Search in title OR location (requires logic or simple OR)
+                    // Supabase OR syntax: .or(`title.ilike.%${query}%,location.ilike.%${query}%`)
+                    query = query.or(`title.ilike.%${debouncedSearch}%,address.ilike.%${debouncedSearch}%`)
+                }
+
+                if (typeFilter !== 'all') {
+                    query = query.eq('property_type', typeFilter === 'Apartamento' ? 'apartment' : typeFilter === 'Casa' ? 'house' : typeFilter === 'Chacra' ? 'land' : 'commercial') // Mapping UI types to DB types
+                }
+
+                if (priceFilter !== 'all') {
+                    if (priceFilter === 'under500k') query = query.lt('price', 500000)
+                    if (priceFilter === '500k-1m') query = query.gte('price', 500000).lt('price', 1000000)
+                    if (priceFilter === 'over1m') query = query.gte('price', 1000000)
+                }
+
+                const { data, error } = await query
+
+                if (error) throw error
+
+                if (data) {
                     setProperties(data.map(p => ({
                         ...p,
-                        image: p.cover_image || mockProperties[0].image,
-                        has360: p.has_360_tour || false
+                        image: p.images?.[0] || mockProperties[0].image,
+                        has360: p.has_360_tour || false,
+                        // Ensure we map DB fields to UI expected fields if they differ
+                        type: p.property_type === 'apartment' ? 'Apartamento' : p.property_type === 'house' ? 'Casa' : 'Villa' // Simple mapping or keep original
                     })))
+                } else {
+                    setProperties([])
                 }
             } catch (error) {
                 console.error('Error fetching properties:', error)
             }
         }
         fetchProperties()
-    }, [])
+    }, [debouncedSearch, typeFilter, priceFilter])
 
-    // Filter properties
-    const filteredProperties = properties.filter(p => {
-        const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            p.location.toLowerCase().includes(searchQuery.toLowerCase())
-
-        const matchesPrice = priceFilter === "all" ||
-            (priceFilter === "under500k" && p.price < 500000) ||
-            (priceFilter === "500k-1m" && p.price >= 500000 && p.price < 1000000) ||
-            (priceFilter === "over1m" && p.price >= 1000000)
-
-        const matchesType = typeFilter === "all" || p.type === typeFilter
-
-        return matchesSearch && matchesPrice && matchesType
-    })
+    // Client-side filtering is removed, we use 'properties' directly as it IS the filtered result now.
+    const filteredProperties = properties
 
     return (
         <main className="min-h-screen bg-slate-950">

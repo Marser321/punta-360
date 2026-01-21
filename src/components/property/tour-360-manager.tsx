@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useCallback } from "react"
+import { useDropzone } from "react-dropzone"
 import { supabase } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -24,7 +25,9 @@ import {
     Sofa,
     Trees,
     Car,
-    Eye
+    Eye,
+    Upload,
+    ImageIcon
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -63,14 +66,75 @@ export function Tour360Manager({
     const [adding, setAdding] = useState(false)
     const [editingId, setEditingId] = useState<string | null>(null)
     const [editName, setEditName] = useState("")
-    const [previewUrl, setPreviewUrl] = useState<string | null>(null)
 
-    const addImage = async () => {
+    // File upload state
+    const [uploadingFile, setUploadingFile] = useState(false)
+
+    // --- LOGIC FOR URL ADD ---
+    const addFromUrl = async () => {
         if (!newUrl || !newRoomName) {
             toast.error("Ingresa URL y nombre de habitación")
             return
         }
+        await saveImage(newUrl, newRoomName)
+        setNewUrl("")
+        setNewRoomName("")
+    }
 
+    // --- LOGIC FOR FILE UPLOAD ---
+    const onDrop = useCallback(async (acceptedFiles: File[]) => {
+        if (acceptedFiles.length === 0) return
+
+        // If room name is empty, default to "Habitación 360"
+        const roomNameByUser = newRoomName.trim() || `Panorama ${images.length + 1}`
+
+        setUploadingFile(true)
+        const file = acceptedFiles[0] // Single file upload logic for now to keep it simple per room
+
+        try {
+            const fileExt = file.name.split('.').pop()
+            const fileName = `360-${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
+            const filePath = `${propertyId}/360/${fileName}`
+
+            const { error: uploadError } = await supabase.storage
+                .from('property-media')
+                .upload(filePath, file, {
+                    cacheControl: '3600',
+                    upsert: false
+                })
+
+            if (uploadError) throw uploadError
+
+            const { data: { publicUrl } } = supabase.storage
+                .from('property-media')
+                .getPublicUrl(filePath)
+
+            await saveImage(publicUrl, roomNameByUser)
+            setNewRoomName("") // Clear room name after success
+            toast.success("Imagen 360° subida correctamente")
+
+        } catch (error: any) {
+            console.error('Upload error:', error)
+            toast.error(`Error subiendo imagen: ${error.message}`)
+        } finally {
+            setUploadingFile(false)
+        }
+    }, [propertyId, newRoomName, images.length])
+
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        onDrop,
+        accept: {
+            'image/jpeg': ['.jpg', '.jpeg'],
+            'image/png': ['.png'],
+            'image/webp': ['.webp'],
+            'image/avif': ['.avif'] // some 360 cams use avif
+        },
+        maxFiles: 1, // One at a time to associate with room name
+        disabled: uploadingFile || adding
+    })
+
+    // --- SHARED SAVE LOGIC ---
+    const saveImage = async (url: string, name: string) => {
         setAdding(true)
         try {
             const { data: insertedAsset, error } = await supabase
@@ -78,8 +142,8 @@ export function Tour360Manager({
                 .insert({
                     property_id: propertyId,
                     asset_type: '360_url',
-                    url: newUrl,
-                    room_name: newRoomName,
+                    url: url,
+                    room_name: name,
                     position: images.length,
                     is_featured: images.length === 0
                 })
@@ -90,19 +154,17 @@ export function Tour360Manager({
 
             const newImage: Tour360Image = {
                 id: insertedAsset.id,
-                url: newUrl,
-                room_name: newRoomName,
+                url: url,
+                room_name: name,
                 position: images.length
             }
 
             const updatedImages = [...images, newImage]
             setImages(updatedImages)
             onImagesChange(updatedImages)
-            setNewUrl("")
-            setNewRoomName("")
-            toast.success(`${newRoomName} añadida al tour`)
         } catch (error: any) {
             toast.error(error.message)
+            throw error // Propagate error if needed
         } finally {
             setAdding(false)
         }
@@ -111,13 +173,21 @@ export function Tour360Manager({
     const removeImage = async (image: Tour360Image) => {
         if (image.id) {
             await supabase.from('media_assets').delete().eq('id', image.id)
+
+            // If it's a stored file, we should try to delete it too
+            // Check if URL belongs to our storage
+            if (image.url.includes('/property-media/')) {
+                const urlParts = image.url.split('/property-media/')
+                if (urlParts[1]) {
+                    await supabase.storage.from('property-media').remove([urlParts[1]])
+                }
+            }
         }
         const updatedImages = images.filter(img => img.id !== image.id)
-        // Recalculate positions
         const reorderedImages = updatedImages.map((img, idx) => ({ ...img, position: idx }))
         setImages(reorderedImages)
         onImagesChange(reorderedImages)
-        toast.success("Habitación eliminada del tour")
+        toast.success("Habitación eliminada")
     }
 
     const saveRoomName = async (image: Tour360Image) => {
@@ -143,10 +213,7 @@ export function Tour360Manager({
                         >
                             <div className="flex items-center gap-4 p-4">
                                 {/* Thumbnail */}
-                                <div
-                                    className="w-24 h-16 rounded-lg overflow-hidden bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex-shrink-0 cursor-pointer relative group"
-                                    onClick={() => setPreviewUrl(image.url)}
-                                >
+                                <div className="w-24 h-16 rounded-lg overflow-hidden bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex-shrink-0 relative group">
                                     <img
                                         src={image.url}
                                         alt={image.room_name}
@@ -156,12 +223,17 @@ export function Tour360Manager({
                                             target.style.display = 'none'
                                         }}
                                     />
-                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                        <Eye className="w-5 h-5 text-white" />
-                                    </div>
                                     <div className="absolute top-1 left-1 bg-cyan-500/80 text-[10px] font-bold text-white px-1.5 py-0.5 rounded">
                                         360°
                                     </div>
+                                    <a
+                                        href={image.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity"
+                                    >
+                                        <Eye className="w-5 h-5 text-white" />
+                                    </a>
                                 </div>
 
                                 {/* Room Name */}
@@ -197,7 +269,6 @@ export function Tour360Manager({
                                             </Button>
                                         </div>
                                     )}
-                                    <p className="text-xs text-white/50 truncate mt-1">{image.url}</p>
                                 </div>
 
                                 {/* Actions */}
@@ -215,7 +286,7 @@ export function Tour360Manager({
                 </div>
             )}
 
-            {/* Add New Room */}
+            {/* Add New Room Section */}
             <Card className="bg-white/5 border-white/10 border-dashed">
                 <CardHeader className="pb-3">
                     <CardTitle className="text-lg flex items-center gap-2">
@@ -224,9 +295,9 @@ export function Tour360Manager({
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    {/* Room Name Presets */}
+                    {/* 1. Select Room Name (Common for both methods) */}
                     <div>
-                        <Label className="text-white/70 text-sm mb-2 block">Habitación</Label>
+                        <Label className="text-white/70 text-sm mb-2 block">1. Selecciona o escribe nombre de la habitación</Label>
                         <div className="flex flex-wrap gap-2 mb-3">
                             {ROOM_PRESETS.map((preset) => (
                                 <Button
@@ -248,55 +319,60 @@ export function Tour360Manager({
                             ))}
                         </div>
                         <Input
-                            placeholder="O escribe un nombre personalizado..."
+                            placeholder="Ej: Sala de Juegos..."
                             value={newRoomName}
                             onChange={(e) => setNewRoomName(e.target.value)}
                             className="glass-input"
                         />
                     </div>
 
-                    {/* URL Input */}
-                    <div>
-                        <Label className="text-white/70 text-sm mb-2 block">URL de Imagen 360° (Equirectangular)</Label>
-                        <Input
-                            placeholder="https://ejemplo.com/panorama-360.jpg"
-                            value={newUrl}
-                            onChange={(e) => setNewUrl(e.target.value)}
-                            className="glass-input"
-                        />
-                        <p className="text-xs text-white/40 mt-1">
-                            Formatos soportados: Insta360, GoPro, Ricoh Theta, o cualquier imagen equirectangular
-                        </p>
-                    </div>
+                    <div className="grid md:grid-cols-2 gap-6 pt-2">
+                        {/* Option A: Upload File */}
+                        <div className="space-y-2">
+                            <Label className="text-white/70 text-sm block">A. Subir Imagen 360°</Label>
+                            <div
+                                {...getRootProps()}
+                                className={cn(
+                                    "border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all h-32 flex flex-col items-center justify-center gap-2",
+                                    isDragActive ? "border-cyan-500 bg-cyan-500/10" : "border-white/20 hover:border-white/40 hover:bg-white/5",
+                                    uploadingFile && "opacity-50 cursor-not-allowed"
+                                )}
+                            >
+                                <input {...getInputProps()} />
+                                {uploadingFile ? (
+                                    <Loader2 className="w-8 h-8 text-cyan-500 animate-spin" />
+                                ) : (
+                                    <Upload className="w-8 h-8 text-white/50" />
+                                )}
+                                <p className="text-xs text-white/70">
+                                    {uploadingFile ? "Subiendo..." : "Arrastra o clic para subir"}
+                                </p>
+                            </div>
+                        </div>
 
-                    {/* Quick Examples */}
-                    <div className="flex flex-wrap gap-2">
-                        <span className="text-xs text-white/40">Ejemplos:</span>
-                        <button
-                            type="button"
-                            onClick={() => setNewUrl('https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/modern_buildings.jpg')}
-                            className="text-xs text-cyan-400 hover:underline"
-                        >
-                            Modern Building
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => setNewUrl('https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/autumn_field_puresky.jpg')}
-                            className="text-xs text-cyan-400 hover:underline"
-                        >
-                            Campo
-                        </button>
+                        {/* Option B: Enter URL */}
+                        <div className="space-y-2">
+                            <Label className="text-white/70 text-sm block">B. Pegar URL Directa</Label>
+                            <div className="flex flex-col gap-2 h-32 justify-end">
+                                <Input
+                                    placeholder="https://..."
+                                    value={newUrl}
+                                    onChange={(e) => setNewUrl(e.target.value)}
+                                    className="glass-input"
+                                />
+                                <Button
+                                    type="button"
+                                    onClick={addFromUrl}
+                                    disabled={adding || !newUrl || !newRoomName}
+                                    className="w-full bg-cyan-900/50 hover:bg-cyan-900 text-cyan-200 border border-cyan-500/30"
+                                    variant="outline"
+                                >
+                                    {adding ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Globe className="w-4 h-4 mr-2" />}
+                                    Añadir URL
+                                </Button>
+                            </div>
+                        </div>
                     </div>
-
-                    <Button
-                        type="button"
-                        onClick={addImage}
-                        disabled={adding || !newUrl || !newRoomName}
-                        className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full"
-                    >
-                        {adding ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Globe className="w-4 h-4 mr-2" />}
-                        Añadir al Tour 360°
-                    </Button>
                 </CardContent>
             </Card>
 
@@ -309,13 +385,9 @@ export function Tour360Manager({
                             Tour con {images.length} {images.length === 1 ? 'habitación' : 'habitaciones'}
                         </span>
                     </div>
-                    <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
-                        Recorrido Conectado
-                    </Badge>
                 </div>
             )}
-
-            {/* Preview Modal would go here */}
         </div>
     )
 }
+

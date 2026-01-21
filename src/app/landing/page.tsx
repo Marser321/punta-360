@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+// ... imports
+import { Logo } from "@/components/ui/logo"
+
+
 import {
     Camera,
     Play,
@@ -50,16 +54,17 @@ export default function LandingPage() {
                 {/* Navigation */}
                 <nav className="absolute top-0 left-0 right-0 z-20 p-6">
                     <div className="container mx-auto flex items-center justify-between">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center">
-                                <Sparkles className="h-5 w-5 text-black" />
-                            </div>
-                            <span className="text-xl font-bold text-white">Punta<span className="text-amber-400">360</span></span>
+                        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+                            <Logo size="md" />
                         </Link>
 
                         <div className="hidden md:flex items-center gap-8">
                             <Link href="/marketplace" className="text-white/70 hover:text-white transition-colors">
                                 Propiedades
+                            </Link>
+                            <Link href="/ai-solutions" className="text-amber-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-1">
+                                <Sparkles className="w-4 h-4" />
+                                Soluciones AI
                             </Link>
                             <Link href="#servicios" className="text-white/70 hover:text-white transition-colors">
                                 Servicios
@@ -229,10 +234,7 @@ export default function LandingPage() {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="flex items-center gap-2">
-                            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center">
-                                <Sparkles className="h-4 w-4 text-black" />
-                            </div>
-                            <span className="font-bold text-white">Punta<span className="text-amber-400">360</span></span>
+                            <Logo size="md" />
                         </div>
 
                         <p className="text-sm text-white/40">

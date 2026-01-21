@@ -38,6 +38,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { toast } from "sonner"
 import { ImageComparison } from "@/components/ui/image-comparison"
 import { ParallaxSection } from "@/components/ui/parallax-section"
+import { Logo } from "@/components/ui/logo"
 
 // Pricing plans - REENFOCADOS para agentes nuevos
 const plans = [
@@ -200,7 +201,16 @@ export default function EnterprisePage() {
         <div className="min-h-screen bg-black overflow-hidden">
             {/* === HERO SECTION === */}
             <section className="relative min-h-screen flex items-center justify-center">
+                {/* Branding */}
+                <div className="absolute top-6 left-6 z-30">
+                    <Link href="/">
+                        <Logo />
+                    </Link>
+                </div>
+
                 {/* Animated Background */}
+
+
                 <div className="absolute inset-0">
                     {/* Background Image */}
                     <div
@@ -249,14 +259,12 @@ export default function EnterprisePage() {
                         className="max-w-5xl mx-auto text-center"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
+                        transition={{ duration: 0.8 }}>
                         {/* Badge */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.2 }}
-                        >
+                            transition={{ delay: 0.2 }}>
                             <Badge className="mb-8 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white border-purple-500/30 text-base px-6 py-2">
                                 <Rocket className="w-4 h-4 mr-2" />
                                 Para Agentes que Quieren Crecer
@@ -268,8 +276,7 @@ export default function EnterprisePage() {
                             className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tight"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                        >
+                            transition={{ delay: 0.3 }}>
                             Vende como
                             <br />
                             <span className="relative">
@@ -291,8 +298,7 @@ export default function EnterprisePage() {
                             className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                        >
+                            transition={{ delay: 0.5 }}>
                             El mismo marketing que usan las inmobiliarias de lujo,
                             <br className="hidden md:block" />
                             <span className="text-white font-semibold"> ahora accesible para agentes independientes.</span>
@@ -303,13 +309,11 @@ export default function EnterprisePage() {
                             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 }}
-                        >
+                            transition={{ delay: 0.6 }}>
                             <Button
                                 size="lg"
                                 className="bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500 text-black font-bold text-lg px-10 py-7 rounded-full shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all hover:scale-105"
-                                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-                            >
+                                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
                                 Empieza Gratis 14 Días
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
@@ -317,8 +321,7 @@ export default function EnterprisePage() {
                                 size="lg"
                                 variant="outline"
                                 className="border-white/30 text-white hover:bg-white/10 text-lg px-10 py-7 rounded-full group"
-                                onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                            >
+                                onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}>
                                 <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                                 Ver Demo
                             </Button>
@@ -329,8 +332,7 @@ export default function EnterprisePage() {
                             className="flex flex-wrap justify-center gap-8 text-white/50 text-sm"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.8 }}
-                        >
+                            transition={{ delay: 0.8 }}>
                             <div className="flex items-center gap-2">
                                 <div className="flex -space-x-2">
                                     {[1, 2, 3, 4, 5].map((i) => (
@@ -357,8 +359,7 @@ export default function EnterprisePage() {
                 <motion.div
                     className="absolute bottom-10 left-1/2 -translate-x-1/2"
                     animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                >
+                    transition={{ duration: 2, repeat: Infinity }}>
                     <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
                         <div className="w-1.5 h-3 bg-white/50 rounded-full" />
                     </div>
@@ -369,15 +370,13 @@ export default function EnterprisePage() {
             <ParallaxSection
                 imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920"
                 className="py-24"
-                overlayClass="bg-gradient-to-b from-black to-slate-950 opacity-90"
-            >
+                overlayClass="bg-gradient-to-b from-black to-slate-950 opacity-90">
                 <div className="container mx-auto px-4">
                     <motion.div
                         className="text-center mb-16"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                        viewport={{ once: true }}>
                         <Badge className="mb-4 bg-red-500/20 text-red-300 border-red-500/30">
                             El Problema
                         </Badge>
@@ -393,8 +392,7 @@ export default function EnterprisePage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                viewport={{ once: true }}
-                            >
+                                viewport={{ once: true }}>
                                 <Card className="bg-gradient-to-b from-white/5 to-white/[0.02] border-white/10 backdrop-blur-xl h-full group hover:border-green-500/30 transition-all">
                                     <CardContent className="p-6">
                                         <div className="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mb-4 group-hover:bg-green-500/10 transition-colors">
@@ -434,8 +432,7 @@ export default function EnterprisePage() {
                         className="text-center mb-16"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                        viewport={{ once: true }}>
                         <Badge className="mb-4 bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
                             La Transformación
                         </Badge>
@@ -452,8 +449,7 @@ export default function EnterprisePage() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="space-y-8"
-                        >
+                            className="space-y-8">
                             <div className="flex flex-col md:flex-row justify-between items-end px-2 gap-4">
                                 <div>
                                     <h3 className="text-2xl font-bold text-white flex items-center gap-3 mb-2">
@@ -491,8 +487,7 @@ export default function EnterprisePage() {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="space-y-4"
-                            >
+                                className="space-y-4">
                                 <div className="px-2">
                                     <h4 className="text-lg font-bold text-white mb-1">Experiencia Inmersiva vs Estática</h4>
                                     <p className="text-sm text-white/50">Los tours 360° mantienen al cliente **300% más tiempo** en tu anuncio.</p>
@@ -526,8 +521,7 @@ export default function EnterprisePage() {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="space-y-4"
-                            >
+                                className="space-y-4">
                                 <div className="px-2">
                                     <h4 className="text-lg font-bold text-white mb-1">Contexto vs Detalle</h4>
                                     <p className="text-sm text-white/50">El video aéreo vende el **estilo de vida** y el entorno, no solo la casa.</p>
@@ -564,15 +558,13 @@ export default function EnterprisePage() {
             <ParallaxSection
                 imageUrl="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920"
                 className="py-24"
-                overlayClass="bg-gradient-to-b from-slate-950 to-black opacity-90"
-            >
+                overlayClass="bg-gradient-to-b from-slate-950 to-black opacity-90">
                 <div className="container mx-auto px-4">
                     <motion.div
                         className="text-center mb-16"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                        viewport={{ once: true }}>
                         <Badge className="mb-4 bg-amber-500/20 text-amber-300 border-amber-500/30">
                             <Star className="w-3 h-3 mr-1 fill-amber-400" />
                             Historias Reales
@@ -589,8 +581,7 @@ export default function EnterprisePage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                            >
+                                transition={{ duration: 0.5 }}>
                                 <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/10 backdrop-blur-xl overflow-hidden">
                                     <CardContent className="p-8 md:p-12">
                                         <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -656,8 +647,7 @@ export default function EnterprisePage() {
                         className="text-center mb-16"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                        viewport={{ once: true }}>
                         <Badge className="mb-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-300 border-amber-500/30">
                             <Zap className="w-3 h-3 mr-1" />
                             Planes que Crecen Contigo
@@ -678,8 +668,7 @@ export default function EnterprisePage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.15 }}
                                 viewport={{ once: true }}
-                                className={plan.popular ? 'md:-mt-4 md:mb-4' : ''}
-                            >
+                                className={plan.popular ? 'md:-mt-4 md:mb-4' : ''}>
                                 <Card className={`relative bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-white/10 h-full overflow-hidden ${plan.popular ? 'border-2 border-amber-500/50 shadow-2xl shadow-amber-500/20' : ''}`}>
                                     {/* Popular Badge */}
                                     {plan.popular && (
@@ -726,8 +715,7 @@ export default function EnterprisePage() {
                                             className={`w-full rounded-full font-bold py-6 ${plan.popular
                                                 ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-black hover:shadow-lg hover:shadow-amber-500/30'
                                                 : 'bg-white/10 text-white hover:bg-white/20'}`}
-                                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                                        >
+                                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                                             {plan.cta}
                                             <ChevronRight className="w-4 h-4 ml-1" />
                                         </Button>
@@ -742,8 +730,7 @@ export default function EnterprisePage() {
                         className="mt-12 text-center"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                    >
+                        viewport={{ once: true }}>
                         <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
                             <Shield className="w-5 h-5 text-green-400" />
                             <span className="text-white/70">Garantía de devolución 30 días • Sin preguntas</span>
@@ -773,8 +760,7 @@ export default function EnterprisePage() {
                             className="text-center mb-12"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
+                            viewport={{ once: true }}>
                             <Badge className="mb-4 bg-green-500/20 text-green-300 border-green-500/30">
                                 <Headphones className="w-3 h-3 mr-1" />
                                 Empezar
@@ -790,8 +776,7 @@ export default function EnterprisePage() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
+                            viewport={{ once: true }}>
                             <Card className="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-white/10">
                                 <CardContent className="p-8">
                                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -829,9 +814,9 @@ export default function EnterprisePage() {
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <Label className="text-white">¿Cuánta experiencia tienes?</Label>
+                                                <Label className="text-white">Experiencia</Label>
                                                 <Input
-                                                    placeholder="Ej: 2 años / Recién empezando"
+                                                    placeholder="Ej: 2 años"
                                                     value={formData.experience}
                                                     onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                                                     className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-12"
@@ -839,19 +824,18 @@ export default function EnterprisePage() {
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <Label className="text-white">¿Cuál es tu mayor desafío hoy?</Label>
+                                            <Label className="text-white">Mensaje</Label>
                                             <Textarea
-                                                placeholder="Conseguir más clientes, fotos profesionales, destacar de la competencia..."
+                                                placeholder="Cuéntanos tus objetivos..."
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 min-h-[100px]"
+                                                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 min-h-[120px]"
                                             />
                                         </div>
                                         <Button
                                             type="submit"
                                             size="lg"
-                                            className="w-full bg-gradient-to-r from-green-400 to-cyan-500 text-black font-bold rounded-full py-7 text-lg hover:shadow-lg hover:shadow-green-500/30 transition-all"
-                                        >
+                                            className="w-full bg-gradient-to-r from-green-400 to-cyan-500 text-black font-bold rounded-full py-7 text-lg hover:shadow-lg hover:shadow-green-500/30 transition-all">
                                             Quiero mi Prueba Gratis
                                             <Rocket className="ml-2 w-5 h-5" />
                                         </Button>
@@ -885,8 +869,7 @@ export default function EnterprisePage() {
                         <Button
                             size="lg"
                             className="bg-white text-black font-bold rounded-full hover:bg-white/90 px-10 py-7 text-lg shadow-xl shadow-white/5"
-                            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-                        >
+                            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
                             Empezar Ahora
                         </Button>
                         <Link href="/owners">
@@ -897,6 +880,23 @@ export default function EnterprisePage() {
                     </div>
                 </div>
             </section>
+
+            {/* Footer */}
+            <footer className="py-12 bg-black border-t border-white/10 relative z-20">
+                <div className="container mx-auto px-4 text-center">
+                    <div className="flex justify-center mb-8">
+                        <Logo size="md" variant="full" />
+                    </div>
+                    <div className="flex justify-center gap-8 mb-8 text-white/40">
+                        <Link href="/" className="hover:text-white transition-colors">Términos</Link>
+                        <Link href="/" className="hover:text-white transition-colors">Privacidad</Link>
+                        <Link href="/contact" className="hover:text-white transition-colors">Contacto</Link>
+                    </div>
+                    <p className="text-white/20 text-sm">
+                        © 2026 Punta360. Real Estate Excellence.
+                    </p>
+                </div>
+            </footer>
         </div>
     )
 }

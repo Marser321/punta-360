@@ -9,6 +9,7 @@ import { createClient } from "@/lib/supabase/browser"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Logo } from "@/components/ui/logo"
 
 type UserRole = 'cliente' | 'agente'
 
@@ -111,13 +112,8 @@ export default function RegisterPage() {
                 className="relative z-10 w-full max-w-md"
             >
                 {/* Logo */}
-                <Link href="/" className="flex items-center justify-center gap-2 mb-8">
-                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center">
-                        <Sparkles className="h-6 w-6 text-black" />
-                    </div>
-                    <span className="text-2xl font-bold text-white">
-                        Punta<span className="text-amber-400">360</span>
-                    </span>
+                <Link href="/" className="flex items-center justify-center mb-8 hover:opacity-90 transition-opacity">
+                    <Logo size="lg" />
                 </Link>
 
                 {/* Card */}
@@ -146,8 +142,8 @@ export default function RegisterPage() {
                                     type="button"
                                     onClick={() => setRole('cliente')}
                                     className={`p-4 rounded-xl border-2 transition-all ${role === 'cliente'
-                                            ? 'border-amber-500 bg-amber-500/10'
-                                            : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
+                                        ? 'border-amber-500 bg-amber-500/10'
+                                        : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
                                         }`}
                                 >
                                     <ShoppingBag className={`h-6 w-6 mx-auto mb-2 ${role === 'cliente' ? 'text-amber-400' : 'text-slate-500'}`} />
@@ -158,8 +154,8 @@ export default function RegisterPage() {
                                     type="button"
                                     onClick={() => setRole('agente')}
                                     className={`p-4 rounded-xl border-2 transition-all ${role === 'agente'
-                                            ? 'border-purple-500 bg-purple-500/10'
-                                            : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
+                                        ? 'border-purple-500 bg-purple-500/10'
+                                        : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
                                         }`}
                                 >
                                     <Building2 className={`h-6 w-6 mx-auto mb-2 ${role === 'agente' ? 'text-purple-400' : 'text-slate-500'}`} />

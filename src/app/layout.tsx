@@ -16,8 +16,26 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Punta360 - Luxury Real Estate',
-  description: 'Gestión inmobiliaria premium en Punta del Este',
+  metadataBase: new URL('https://punta360-demo.vercel.app'), // TODO: Replace with actual domain
+  title: {
+    default: 'Punta360 - Luxury Real Estate',
+    template: '%s | Punta360'
+  },
+  description: 'Gestión inmobiliaria premium en Punta del Este. Encuentra tu próxima inversión en el paraíso.',
+  openGraph: {
+    type: 'website',
+    locale: 'es_UY',
+    url: 'https://punta360-demo.vercel.app',
+    siteName: 'Punta360',
+    images: [
+      {
+        url: '/og-default.jpg', // We need to ensure this exists or use an external URL
+        width: 1200,
+        height: 630,
+        alt: 'Punta360 Real Estate'
+      }
+    ]
+  }
 }
 
 export default function RootLayout({

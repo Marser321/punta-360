@@ -5,6 +5,13 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import {
     Table,
     TableBody,
     TableCell,
@@ -84,7 +91,7 @@ export default function LeadsPage() {
                                 <TableHead>Fecha</TableHead>
                                 <TableHead>Nombre</TableHead>
                                 <TableHead>Propiedad de Interés</TableHead>
-                                <TableHead>Intención</TableHead>
+                                <TableHead>Estado</TableHead>
                                 <TableHead className="text-right">Acciones</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -120,20 +127,35 @@ export default function LeadsPage() {
                                         </TableCell>
                                         <TableCell>{lead.properties?.title || "Propiedad Desconocida"}</TableCell>
                                         <TableCell>
-                                            <div className="flex gap-2">
-                                                {lead.intent_data?.intent === 'buy' && <Badge className="bg-green-500/20 text-green-700 hover:bg-green-500/30 border-0">Comprar</Badge>}
-                                                {lead.intent_data?.budget && (
-                                                    <Badge variant="outline" className="border-primary/20 text-primary">
-                                                        {lead.intent_data.budget}
-                                                    </Badge>
-                                                )}
-                                            </div>
+                                            <Select
+                                                defaultValue={lead.status || 'new'}
+                                                onValueChange={async (val) => {
+                                                    // Optimistic UI update could be done here, but simple await is safer for MVP
+                                                    await supabase.from('leads').update({ status: val }).eq('id', lead.id)
+                                                    // Ideally refresh or update local state
+                                                    setLeads(leads.map(l => l.id === lead.id ? { ...l, status: val } : l))
+                                                }}
+                                            >
+                                                <SelectTrigger className="w-[140px] h-8 bg-white/5 border-white/10">
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="new">Nuevo</SelectItem>
+                                                    <SelectItem value="contacted">Contactado</SelectItem>
+                                                    <SelectItem value="meeting">Reunión</SelectItem>
+                                                    <SelectItem value="closed">Cerrado</SelectItem>
+                                                    <SelectItem value="lost">Perdido</SelectItem>
+                                                </SelectContent>
+                                            </Select>
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white shadow-md rounded-full" onClick={() => window.open(getWhatsAppLink(lead.visitor_contact), '_blank')}>
-                                                <MessageCircle className="w-4 h-4 mr-1" />
-                                                WhatsApp
-                                            </Button>
+                                            <div className="flex justify-end gap-2">
+                                                {lead.intent_data?.intent === 'buy' && <Badge className="bg-green-500/20 text-green-700 hover:bg-green-500/30 border-0 h-8">Comprar</Badge>}
+                                                <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white shadow-md rounded-full h-8" onClick={() => window.open(getWhatsAppLink(lead.visitor_contact), '_blank')}>
+                                                    <MessageCircle className="w-4 h-4 mr-1" />
+                                                    WhatsApp
+                                                </Button>
+                                            </div>
                                         </TableCell>
                                     </TableRow>
                                 ))

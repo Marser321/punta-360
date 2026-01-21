@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { Bell, Menu } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Logo } from "@/components/ui/logo"
+import Link from "next/link"
 
 export function OwnerHeader() {
     return (
@@ -11,6 +13,13 @@ export function OwnerHeader() {
             <Button variant="ghost" size="icon" className="md:hidden text-white">
                 <Menu className="h-6 w-6" />
             </Button>
+
+            {/* Mobile/Default Logo */}
+            <div className="md:hidden">
+                <Link href="/owner/dashboard">
+                    <Logo size="sm" />
+                </Link>
+            </div>
 
             {/* Greeting */}
             <div className="hidden md:block">

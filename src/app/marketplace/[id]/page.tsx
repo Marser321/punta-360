@@ -71,6 +71,47 @@ export default function PropertyDetailPage() {
     const [show360, setShow360] = useState(false)
 
     useEffect(() => {
+        async function checkFavorite() {
+            const { data: { user } } = await supabase.auth.getUser()
+            if (!user || !params.id) return
+
+            const { data } = await supabase
+                .from('favorites')
+                .select('*')
+                .eq('user_id', user.id)
+                .eq('property_id', params.id)
+                .single()
+
+            if (data) setIsLiked(true)
+        }
+        checkFavorite()
+    }, [params.id])
+
+    const toggleFavorite = async () => {
+        const { data: { user } } = await supabase.auth.getUser()
+        if (!user) {
+            alert("Debes iniciar sesión para guardar favoritos")
+            return
+        }
+
+        if (isLiked) {
+            const { error } = await supabase
+                .from('favorites')
+                .delete()
+                .eq('user_id', user.id)
+                .eq('property_id', params.id)
+
+            if (!error) setIsLiked(false)
+        } else {
+            const { error } = await supabase
+                .from('favorites')
+                .insert({ user_id: user.id, property_id: params.id })
+
+            if (!error) setIsLiked(true)
+        }
+    }
+
+    useEffect(() => {
         async function fetchProperty() {
             if (params.id) {
                 const { data } = await supabase
@@ -83,7 +124,7 @@ export default function PropertyDetailPage() {
                     setProperty({
                         ...mockPropertyDetail,
                         ...data,
-                        images: data.gallery_images || mockPropertyDetail.images,
+                        images: data.images || mockPropertyDetail.images, // Fix: mapping cover_image logic was in marketplace list, here it's detail
                         has360: data.has_360_tour || false,
                         panoramaUrl: data.panorama_url || mockPropertyDetail.panoramaUrl
                     })
@@ -114,7 +155,7 @@ export default function PropertyDetailPage() {
                     variant="outline"
                     size="icon"
                     className="h-10 w-10 rounded-full bg-black/50 backdrop-blur-md border-white/20 text-white hover:bg-black/70"
-                    onClick={() => setIsLiked(!isLiked)}
+                    onClick={toggleFavorite}
                 >
                     <Heart className={`h-5 w-5 ${isLiked ? 'fill-red-500 text-red-500' : ''}`} />
                 </Button>
@@ -122,6 +163,10 @@ export default function PropertyDetailPage() {
                     variant="outline"
                     size="icon"
                     className="h-10 w-10 rounded-full bg-black/50 backdrop-blur-md border-white/20 text-white hover:bg-black/70"
+                    onClick={() => {
+                        const text = `Hola! Mira esta propiedad: ${property.title} - USD ${property.price.toLocaleString()}. Link: ${window.location.href}`
+                        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank')
+                    }}
                 >
                     <Share2 className="h-5 w-5" />
                 </Button>

@@ -13,6 +13,7 @@ import {
     Sparkles
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/ui/logo"
 
 const routes = [
     {
@@ -44,16 +45,13 @@ export function OwnerSidebar() {
     return (
         <div className="flex flex-col h-full py-6">
             {/* Logo */}
-            <div className="px-6 mb-8">
+            <div className="px-6 mb-8 pt-2">
                 <Link href="/owner/dashboard" className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/30">
-                        <Sparkles className="w-5 h-5 text-black" />
-                    </div>
-                    <div>
-                        <h1 className="text-xl font-bold text-white">Punta360</h1>
-                        <p className="text-xs text-amber-400/80">Portal Propietario</p>
-                    </div>
+                    <Logo size="md" variant="full" />
                 </Link>
+                <div className="mt-2 ml-10">
+                    <p className="text-[10px] uppercase tracking-widest text-amber-500/60 font-medium">Portal Propietario</p>
+                </div>
             </div>
 
             {/* Navigation */}
