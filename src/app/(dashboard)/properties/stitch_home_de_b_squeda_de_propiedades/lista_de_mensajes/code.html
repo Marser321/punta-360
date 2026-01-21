@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lista de Mensajes - Real Estate App</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#198cb3",
+                        "primary-dark": "#14708f",
+                        "background-light": "#f7f7f8",
+                        "background-dark": "#181a1b",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#222426",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'inner-light': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.02)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display antialiased text-slate-800 dark:text-slate-100 transition-colors duration-200">
+<!-- Sticky Header Section -->
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<!-- Top Bar -->
+<div class="flex items-center justify-between px-5 pt-14 pb-2">
+<!-- Left: Back Button -->
+<button class="flex items-center justify-center w-10 h-10 -ml-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-800 dark:text-white">
+<span class="material-symbols-outlined text-[26px]">arrow_back</span>
+</button>
+<!-- Title -->
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Mensajes</h1>
+<!-- Right: Compose Button -->
+<button class="flex items-center justify-center w-10 h-10 -mr-2 rounded-full text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[26px] font-semibold">edit_square</span>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="px-5 py-3">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors text-[22px]">search</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-3 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl text-base placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-sm" placeholder="Buscar agente o propiedad..." type="text"/>
+</div>
+</div>
+<!-- Filter Tabs (Optional Context) -->
+<div class="px-5 pb-3 flex gap-3 overflow-x-auto no-scrollbar">
+<button class="px-4 py-1.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-semibold rounded-full whitespace-nowrap shadow-md">Todos</button>
+<button class="px-4 py-1.5 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium rounded-full whitespace-nowrap">No leídos</button>
+<button class="px-4 py-1.5 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium rounded-full whitespace-nowrap">Ofertas</button>
+</div>
+</header>
+<!-- Content: Messages List -->
+<main class="flex-1 px-4 py-2 pb-24 space-y-3">
+<!-- Date Divider -->
+<div class="flex items-center py-2">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider px-2">Hoy</span>
+<div class="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
+</div>
+<!-- Message Item 1: Unread -->
+<div class="group relative flex flex-col bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-soft cursor-pointer hover:shadow-lg transition-shadow border-l-4 border-primary">
+<div class="flex items-start gap-3">
+<!-- Avatar -->
+<div class="relative shrink-0">
+<img alt="Portrait of Maria Gonzalez looking professional" class="h-12 w-12 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-McOsIX9MQdnQgcYD01GWwj_GDCBHdr9gFOS_Y46NIbSndvVoRMGdiJdI7Gn2a_YJUYTzDwD9potJlzYPm8iMQMOg5UipIbidi_UEzVVgiQb3FRLbKrghMlJm2xbhbI8Q3p04CvaIoZhQ3qbPPGww9x_BjS99UNMZBvsN1NwaRPdfAXZ6SYG05HvqwVLn3S6fn5uUkg3VR4voKWA92OdzIDBtv6Qp3S8vmFhRIP7xyXI9BBCnKpYWD-hBKM5UiDwCl6MIU8R4Rro"/>
+<span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-white dark:ring-surface-dark"></span>
+</div>
+<!-- Content -->
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-base font-bold text-slate-900 dark:text-white truncate pr-2">Maria Gonzalez</h3>
+<span class="text-xs font-semibold text-primary shrink-0">10:30 AM</span>
+</div>
+<!-- Property Context Badge -->
+<div class="flex items-center gap-2 mb-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-1 pr-3 w-fit max-w-full">
+<img alt="Modern apartment interior thumbnail" class="h-6 w-6 rounded bg-slate-200 object-cover" data-alt="Small thumbnail of an apartment interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQy44PJhcNsYQEIl1xJ9rhoKMsXXnCIme45ds-8yxvUv2Ng2r8q3Ou09rrLpZUqVM42rhzDvq7OlOfuMmyO0wgCHs32_xt3I_-B3Qm3ICuTwdPp3rRZk_xDRwW0bxmqhaYjveVchcxIAfOijAv5CCbh0SPN1TBSwRGjz8Q1jYAHge7Syb1-TMRUQsfJQamCRF_Ke6O6_egBNyTgw1nrfPkSGcPMbfCipdYFYzDn1Ft7BXNELINsb8mJsmbZ4_0AW0osMUmhOD7ifc"/>
+<span class="text-xs font-semibold text-slate-600 dark:text-slate-300 truncate">Apto en Zona 10</span>
+</div>
+<!-- Message Preview -->
+<div class="flex justify-between items-end">
+<p class="text-sm text-slate-900 dark:text-slate-100 font-medium truncate pr-4">Hola, ¿sigue disponible para visitar hoy?</p>
+<!-- Unread Badge -->
+<span class="flex items-center justify-center h-5 min-w-[20px] px-1.5 rounded-full bg-primary text-[10px] font-bold text-white shadow-sm">2</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Item 2: Read -->
+<div class="group relative flex flex-col bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-soft cursor-pointer hover:shadow-lg transition-shadow border-l-4 border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+<div class="flex items-start gap-3">
+<div class="relative shrink-0">
+<img alt="Portrait of Carlos Ruiz smiling" class="h-12 w-12 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASqCjOuF8wrw1cDo4d8LGG7z-T5ESUMBpUmwPWHZ9l8S5M4J_D3HcWIu3vdc_MfiSdEGXiSUf0XRWDLmYBqT_zLuRmlGKmh7y7qoEVkzfc9Paic2PvHlWMlvmfyvWsMjHTPBbn-8tGih5LV53pWiWUV0Xkw8YAR1-noW0mNbg_1SgVAGwbYvMWOlFxdV1c2waB6rDMFt23ZVaqlKIdPbJSNxfZuabP1-m9g3uJcYw1RUjQX_B2ixGwU68Kdlu35qqdpszl-4PdEG8"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-base font-bold text-slate-900 dark:text-white truncate pr-2">Carlos Ruiz</h3>
+<span class="text-xs text-slate-400 shrink-0">9:15 AM</span>
+</div>
+<div class="flex items-center gap-2 mb-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-1 pr-3 w-fit max-w-full">
+<img alt="Large luxury house exterior thumbnail" class="h-6 w-6 rounded bg-slate-200 object-cover" data-alt="Thumbnail of a large house with garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXXPLU2LmYXSzMp0eIkz5qkLm865Za3TnDw70XMwsY4kobvyt-_fO0p9idKrbLMHFlbhnloYHfE3lpt9gvKMezjjwp_fRdJzRjcf06mCvZ26PWynLHdjr1osQ6GCp6fYqmF7fcJWlNZMH8KkC9cMr8t9KNU0UnvSSdZIT_luxNuA3NIxQ1nmVX3Ivj4WlYqIt257g9qnQECgLjZlZhYmfHq4c0_tyQYDsBC4ay9OuCiKu6I9F3e1oJb8rNl8sk8FWzOAWxpe-l7BI"/>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 truncate">Casa en Carretera</span>
+</div>
+<div class="flex justify-between items-end">
+<p class="text-sm text-slate-500 dark:text-slate-400 font-normal truncate pr-4">Te envié los documentos del banco ayer.</p>
+<span class="material-symbols-outlined text-primary text-[18px]">done_all</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Date Divider -->
+<div class="flex items-center py-2 mt-4">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider px-2">Ayer</span>
+<div class="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
+</div>
+<!-- Message Item 3: Read, older -->
+<div class="group relative flex flex-col bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-soft cursor-pointer hover:shadow-lg transition-shadow border-l-4 border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+<div class="flex items-start gap-3">
+<div class="relative shrink-0">
+<img alt="Portrait of Ana Lopez" class="h-12 w-12 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbPzSiSIXo76PLh9AcF3O3_6t0_7l4-gzCOrDXpc2GwzdXdhQqPT6GU_dzMTQ2hyF9uGysOwgtO2TaAP7CDVpbN_rDNWFDaD3ZeuQG74ETYHePBGIeFRyKbIxeqxoML0kO02tCNvE9f3PbvYajaNWddDp674gFWkyBi-dprfZn7U-UoZleRPdMiQgy6bgpgibx1qSHQrVfuuS4vRRl3MHA5KmdKcm1Xf2yI8NLCN7j3KcqU93fuVvSxKZBJAk0u4XCML5Z6x1TF7I"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-base font-bold text-slate-900 dark:text-white truncate pr-2">Ana Lopez</h3>
+<span class="text-xs text-slate-400 shrink-0">Ayer</span>
+</div>
+<div class="flex items-center gap-2 mb-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-1 pr-3 w-fit max-w-full">
+<img alt="Green land field thumbnail" class="h-6 w-6 rounded bg-slate-200 object-cover" data-alt="Thumbnail of a green land field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE7_bsGvxwJL-OOyRc8MQHlvRHUBz3DlY2PXUi7GaBbShDX4pb6lkfMpdx45_bojbX3YrAbWUAhAjK6bUogEricMDZMbzYXM0IwKyLvxp3BFBPC6bCJqSI6HdvNbP1pDxef-xbN9YSwIhRILHVP4X8hX39qMjrz5PtyxXhBNW4AJVv5y2IFVB9slwtUcMY7_urijIBGTNC11MjFI3Ma4JAPwrI44g3oAZGsEyaRqtsq_WBmIzkLzSDxe23X8wWDszzFhsEm5ydaUw"/>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 truncate">Terreno San José</span>
+</div>
+<div class="flex justify-between items-end">
+<p class="text-sm text-slate-500 dark:text-slate-400 font-normal truncate pr-4">Gracias por la información, lo reviso.</p>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-[18px]">done</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Item 4: Read, older -->
+<div class="group relative flex flex-col bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-soft cursor-pointer hover:shadow-lg transition-shadow border-l-4 border-transparent hover:border-slate-200 dark:hover:border-slate-700 opacity-60">
+<div class="flex items-start gap-3">
+<div class="relative shrink-0">
+<div class="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white font-bold text-lg border-2 border-white dark:border-slate-700 shadow-sm">RB</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-base font-bold text-slate-900 dark:text-white truncate pr-2">Ricardo B.</h3>
+<span class="text-xs text-slate-400 shrink-0">Lun</span>
+</div>
+<div class="flex items-center gap-2 mb-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-1 pr-3 w-fit max-w-full">
+<img alt="Loft apartment thumbnail" class="h-6 w-6 rounded bg-slate-200 object-cover" data-alt="Thumbnail of a minimalist loft" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFCc6QujQfZN9TRz6rarjuq4ivJ_aXTiikNS83lNpiHqpSbHlxm3a_REb6ORYCVP8YmX4Rskhu9FbpolPw5Wh5i7JLn2uq0fjtbamt0bpE3etkqvrLzJSSBxw3EL0gj9hEB1_9tBeirQUIYEpzwWJBrlCUvaYp_UM2UJ9lMT9mFZe1kIAJ8M255uZ0EGBnTeJ8nTe7GhvBgo-PgQ9Xzt577Uwz7Rzi4O9cyVnlRtw5enPQB2pByqS1ehHbLtReIT1OUywe-aJT1F4"/>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 truncate">Loft Industrial</span>
+</div>
+<div class="flex justify-between items-end">
+<p class="text-sm text-slate-500 dark:text-slate-400 font-normal truncate pr-4">Agendada la cita para el martes.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Simulated for visual context) -->
+<nav class="fixed bottom-0 w-full bg-white/90 dark:bg-surface-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 pb-6 pt-3 px-6 z-50">
+<div class="flex justify-between items-center max-w-sm mx-auto">
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">home_work</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">favorite</span>
+<span class="text-[10px] font-medium">Favoritos</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[24px] filled">chat_bubble</span>
+<span class="text-[10px] font-medium">Mensajes</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</div>
+</nav>
+</body></html>

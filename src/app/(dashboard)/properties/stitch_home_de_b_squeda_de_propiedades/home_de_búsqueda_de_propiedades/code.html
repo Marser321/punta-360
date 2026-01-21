@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home de Búsqueda de Propiedades</title>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2e6b65",
+              "background-light": "#f6f5f3",
+              "background-dark": "#242628",
+              "neutral-dark": "#31363A",
+              "neutral-grey": "#788188",
+              "soft-grey": "#eaf0ef",
+              "accent-coral": "#F5B89C",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem", // rounded-md (8px)
+              "lg": "0.75rem", // rounded-lg (12px)
+              "xl": "1rem", // rounded-xl (16px)
+              "2xl": "1.5rem",
+              "full": "9999px"
+            },
+            boxShadow: {
+                "soft": "0 4px 20px -2px rgba(46, 107, 101, 0.08)",
+                "float": "0 10px 40px -10px rgba(0,0,0,0.08)"
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-gray-100 font-display min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white pb-24">
+<!-- Header Section -->
+<header class="sticky top-0 z-30 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md transition-colors duration-300">
+<!-- Top Bar -->
+<div class="flex items-center justify-between px-5 pt-6 pb-2">
+<div class="flex flex-col">
+<h1 class="text-neutral-dark dark:text-white text-2xl font-extrabold tracking-tight leading-tight">Good morning, Alex.</h1>
+<p class="text-neutral-grey dark:text-gray-400 text-sm font-medium">Let's find your place.</p>
+</div>
+<div class="relative">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-neutral-800 shadow-sm border border-gray-100 dark:border-neutral-700 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Portrait of a smiling user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaTHR7akPyJVGfGQOcrrmHyVeSzOiONbrW7v4sTgH9tGmZErSBdgr0mmlys3qWP4lzP7cZWI9i--v1DfdrK-zPN-5qJ2WoG370VuL7F1sitMjacP2IhkZ-7foS2Xlka5CmWWtox12p44ca1qgLZqZnhhTTIVILfkfUDVdL4NIsZ03zqs36Vxmy4O1qmrlqF4fyiymom1EROTBLcCt5VuPAjM__eYXujtImerVy-VGCCVFXsiHFLoGqqVKID148cX4Tfi_X9n45hb4"/>
+</button>
+<div class="absolute -top-1 -right-1 w-3 h-3 bg-accent-coral rounded-full border-2 border-background-light dark:border-background-dark"></div>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-5 py-3">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-3.5 bg-white dark:bg-neutral-800 border-none rounded-xl text-neutral-dark dark:text-white placeholder-neutral-grey dark:placeholder-gray-500 focus:ring-2 focus:ring-primary/20 shadow-soft text-base font-medium transition-shadow duration-200" placeholder="City, neighborhood, or address..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<button class="p-2 text-neutral-grey hover:text-primary transition-colors rounded-lg">
+<span class="material-symbols-outlined" style="font-size: 24px;">tune</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="w-full overflow-x-auto no-scrollbar pb-2">
+<div class="flex gap-3 px-5 py-2 min-w-max">
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white shadow-md shadow-primary/20 transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">apartment</span>
+<span class="text-sm font-bold">Apartment</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 text-neutral-dark dark:text-gray-300 shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-700 active:scale-95">
+<span class="material-symbols-outlined text-neutral-grey" style="font-size: 18px;">home</span>
+<span class="text-sm font-medium">House</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 text-neutral-dark dark:text-gray-300 shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-700 active:scale-95">
+<span class="material-symbols-outlined text-neutral-grey" style="font-size: 18px;">desk</span>
+<span class="text-sm font-medium">Office</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 text-neutral-dark dark:text-gray-300 shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-700 active:scale-95">
+<span class="material-symbols-outlined text-neutral-grey" style="font-size: 18px;">landscape</span>
+<span class="text-sm font-medium">Land</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 text-neutral-dark dark:text-gray-300 shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-700 active:scale-95">
+<span class="material-symbols-outlined text-neutral-grey" style="font-size: 18px;">domain</span>
+<span class="text-sm font-medium">Condo</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col gap-8 pt-4">
+<!-- Recommended Section -->
+<section class="flex flex-col gap-4">
+<div class="px-5 flex items-center justify-between">
+<h2 class="text-xl font-bold text-neutral-dark dark:text-white tracking-tight">Recommended for you</h2>
+<a class="text-sm font-semibold text-primary hover:text-primary/80" href="#">See all</a>
+</div>
+<div class="flex flex-col gap-6 px-5">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-neutral-800 rounded-2xl shadow-soft dark:shadow-none dark:border dark:border-neutral-700 overflow-hidden cursor-pointer transition-transform hover:-translate-y-1 duration-300">
+<div class="relative w-full h-56 overflow-hidden">
+<img alt="Modern luxury living room interior" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern living room with large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUCPXXydxx53GTg8YnNddx3b2J5UEYCaJxJ8_u81UMu1TFr1_OBmvN_LnzVBn-7KsgDlhZCHHoSdJ5P6Wx_M4sUAPZwXxD7q8MgHo66I5JUoEvF66h_WTKQknMe4sy9oXHv7G-NT1WAfQtGdC_SCa3CSagWaNK-YhXN_JtX_h0B8Wk_UirfvH49jBXW8MebbLVx-jgnjV9uX0nwyAXeZNgCpvcLzVXw3jqRAbCPCWEOm9osmjv_sqWwpRDpmYN1XzwjIeNxacZKy4"/>
+<div class="absolute top-4 left-4 bg-white/90 dark:bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-accent-coral animate-pulse"></div>
+<span class="text-xs font-bold text-neutral-dark dark:text-white uppercase tracking-wide">New</span>
+</div>
+<button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-black/20 backdrop-blur-md text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">favorite</span>
+</button>
+</div>
+<div class="p-5 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl font-bold text-primary dark:text-primary">$450,000</h3>
+<p class="text-neutral-dark dark:text-gray-200 font-semibold text-lg mt-0.5">123 Maple Avenue</p>
+<p class="text-neutral-grey dark:text-gray-400 text-sm">Downtown, Metropolis</p>
+</div>
+</div>
+<div class="h-px bg-gray-100 dark:bg-neutral-700 w-full"></div>
+<div class="flex items-center gap-6 text-neutral-grey dark:text-gray-400">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">bed</span>
+<span class="text-sm font-medium"><strong class="text-neutral-dark dark:text-gray-200">2</strong> Beds</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">bathtub</span>
+<span class="text-sm font-medium"><strong class="text-neutral-dark dark:text-gray-200">2</strong> Baths</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">square_foot</span>
+<span class="text-sm font-medium"><strong class="text-neutral-dark dark:text-gray-200">1,200</strong> sqft</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-neutral-800 rounded-2xl shadow-soft dark:shadow-none dark:border dark:border-neutral-700 overflow-hidden cursor-pointer transition-transform hover:-translate-y-1 duration-300">
+<div class="relative w-full h-56 overflow-hidden">
+<img alt="Beautiful modern house exterior with garden" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Suburban house exterior with lawn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvZC3SEkYBg0oHvlv9owrb6kc38q-sOPb_L7kAU04H6bqDtJs31nIMQ4ojqczdZ072xHvFk0fMoSXXn5vDFT8EVEnbepf8JTtnB1ZxWh9SGXoZ8Feclukl1S4mKyaJRsByoeI5kWelpPZwOEy80E8IySrrZ3lIfhU9-JJPssI7u0i9xYP4l9TG3WT9bGuacz8ycWUZVKohZspU3wP4dhtU9IfJ0n3RZXJ5zM-gvDzdIX4uWYcCO1VWvCaZbryRphU8ap3UtTmQlUA"/>
+<button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-black/20 backdrop-blur-md text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">favorite</span>
+</button>
+</div>
+<div class="p-5 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl font-bold text-primary dark:text-primary">$620,000</h3>
+<p class="text-neutral-dark dark:text-gray-200 font-semibold text-lg mt-0.5">88 Oak Lane</p>
+<p class="text-neutral-grey dark:text-gray-400 text-sm">Suburbia, Green Valley</p>
+</div>
+</div>
+<div class="h-px bg-gray-100 dark:bg-neutral-700 w-full"></div>
+<div class="flex items-center gap-6 text-neutral-grey dark:text-gray-400">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">bed</span>
+<span class="text-sm font-medium"><strong class="text-neutral-dark dark:text-gray-200">4</strong> Beds</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">bathtub</span>
+<span class="text-sm font-medium"><strong class="text-neutral-dark dark:text-gray-200">3</strong> Baths</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">square_foot</span>
+<span class="text-sm font-medium"><strong class="text-neutral-dark dark:text-gray-200">2,500</strong> sqft</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Areas -->
+<section class="flex flex-col gap-4 pb-6">
+<div class="px-5">
+<h2 class="text-xl font-bold text-neutral-dark dark:text-white tracking-tight">Trending Areas</h2>
+</div>
+<div class="w-full overflow-x-auto no-scrollbar pb-4 pl-5">
+<div class="flex gap-4 pr-5 min-w-max">
+<!-- Area 1 -->
+<div class="relative w-40 h-40 rounded-xl overflow-hidden cursor-pointer group shrink-0">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img alt="City skyline view" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Downtown city skyline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuZypCVSs2jZ1lDTnAt4zhn_tilOD8fe3ZY9Z6iyVKckOChFPDRNTbMtoF8It63qhouoAMYUvXL3JGSilOkU4vYkxvIHKlCzgXZwNP3_2nkrtLtWYS56V1geHPtCaGH96jy0V7RdMOLZqk2RyCSNajUFXrma5ciDh9PAm0m2BUqMaDlZvCv11_CGXJMiuCwN4aq9gScVYADVhLYDxvvfYpsgVzSAegT1GHd8V2p5YyjacyMUrvpJHEG6gBcJN5NWOG0bz4OWu_cpE"/>
+<span class="absolute bottom-3 left-3 z-20 text-white font-bold text-lg">Downtown</span>
+<span class="absolute bottom-3 right-3 z-20 text-white/80 text-xs bg-white/20 backdrop-blur-md px-1.5 py-0.5 rounded">45+</span>
+</div>
+<!-- Area 2 -->
+<div class="relative w-40 h-40 rounded-xl overflow-hidden cursor-pointer group shrink-0">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img alt="Artistic building facade" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Artistic brick building facade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS7hmrKWfZUArKODkzsOumOC5DPFT_HydvzI5buKWjZcEgv_m-_0x8hIJxdFSYA2HjuKRk5T25VU81pt3uIQn-hqswUHmqtJqua7y3Z8HUQL4ouHIePWQl-g2QNjYwMTuCjeXZ8hI5SCBfF7I7_Y14TgGz4J_U-4DM2AurCeCoAdoPOlG9AuAXALow3xWU7QNNzprGOlX2g4WDhWA7bSFhv1wiMEnB4Tje73FlbCgHT9lUg4AZQueGRT6MbDnE8w_MRPXTyqaoSL4"/>
+<span class="absolute bottom-3 left-3 z-20 text-white font-bold text-lg">Arts District</span>
+<span class="absolute bottom-3 right-3 z-20 text-white/80 text-xs bg-white/20 backdrop-blur-md px-1.5 py-0.5 rounded">12</span>
+</div>
+<!-- Area 3 -->
+<div class="relative w-40 h-40 rounded-xl overflow-hidden cursor-pointer group shrink-0">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img alt="Suburban street with trees" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Green suburban street" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWys9Wug1lfiFjunqbROW3KRcawSfA3uqRb0A44D39d8VqTlCjt6qpXUPDDc7rU3XrEvj8xbdLLObw9eYt8USefhEDXhxylG_OCheZoRdsLG5G-aSFMSIOXoXSAjtQswKIZKggRIMQfeRjYIWgOae-YsSCzdo8ND2oHm8PTsKEgFwwD9zq2OoarC6VnfsW6sNV99iFUgK3-Bg6539XcnXoA5xM5RHN1azAk9xx4YUuRF3kgwhIdO4ddJBe4n16v3K-3TewFJliioA"/>
+<span class="absolute bottom-3 left-3 z-20 text-white font-bold text-lg">West Side</span>
+<span class="absolute bottom-3 right-3 z-20 text-white/80 text-xs bg-white/20 backdrop-blur-md px-1.5 py-0.5 rounded">28</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 z-50 w-full bg-white/80 dark:bg-neutral-900/90 backdrop-blur-xl border-t border-gray-200 dark:border-neutral-800 pb-safe">
+<div class="flex justify-around items-center h-20 px-2 pb-2">
+<button class="flex flex-col items-center justify-center w-16 h-full gap-1 text-primary">
+<span class="material-symbols-outlined fill-current" style="font-size: 28px; font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center w-16 h-full gap-1 text-neutral-grey dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 28px;">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center w-16 h-full gap-1 text-neutral-grey dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 28px;">favorite</span>
+<span class="text-[10px] font-medium">Saved</span>
+</button>
+<button class="flex flex-col items-center justify-center w-16 h-full gap-1 text-neutral-grey dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors relative">
+<div class="relative">
+<span class="material-symbols-outlined" style="font-size: 28px;">chat_bubble</span>
+<span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-accent-coral rounded-full border-2 border-white dark:border-neutral-900"></span>
+</div>
+<span class="text-[10px] font-medium">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center w-16 h-full gap-1 text-neutral-grey dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 28px;">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+<div class="h-6"></div> <!-- Spacer for safe area at bottom -->
+</body></html>

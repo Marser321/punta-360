@@ -1,0 +1,339 @@
+
+> punta360@0.1.0 lint
+> eslint
+
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(auth)\register\page.tsx
+  16:11  warning  'router' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(dashboard)\calendar\page.tsx
+   3:20  warning  'useEffect' is defined but never used             @typescript-eslint/no-unused-vars
+  18:5   warning  'ChevronLeft' is defined but never used           @typescript-eslint/no-unused-vars
+  19:5   warning  'ChevronRight' is defined but never used          @typescript-eslint/no-unused-vars
+  71:22  warning  'setSessions' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(dashboard)\dashboard\page.tsx
+    5:74  warning  'MoreHorizontal' is defined but never used                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+   12:34  warning  'AvatarImage' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  187:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(dashboard)\leads\page.tsx
+  15:42  warning  'MoreHorizontal' is defined but never used  @typescript-eslint/no-unused-vars
+  22:40  error    Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(dashboard)\properties\[id]\edit\page.tsx
+   13:29  warning  'FormDescription' is defined but never used  @typescript-eslint/no-unused-vars
+   24:5   warning  'Sparkles' is defined but never used         @typescript-eslint/no-unused-vars
+   25:5   warning  'Video' is defined but never used            @typescript-eslint/no-unused-vars
+   26:5   warning  'Camera' is defined but never used           @typescript-eslint/no-unused-vars
+   33:5   warning  'Trash2' is defined but never used           @typescript-eslint/no-unused-vars
+   70:12  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+   73:11  warning  'MediaAsset' is defined but never used       @typescript-eslint/no-unused-vars
+   87:56  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+   88:56  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+   91:46  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  195:25  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(dashboard)\properties\new\page.tsx
+   62:46  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  101:25  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  144:25  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  374:65  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(dashboard)\properties\page.tsx
+   49:50  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  215:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(dashboard)\services\new\page.tsx
+  37:10  warning  'Input' is defined but never used         @typescript-eslint/no-unused-vars
+  54:50  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(public)\enterprise\page.tsx
+   11:5   warning  'Building2' is defined but never used                            @typescript-eslint/no-unused-vars
+   12:5   warning  'Sparkles' is defined but never used                             @typescript-eslint/no-unused-vars
+   15:5   warning  'BarChart3' is defined but never used                            @typescript-eslint/no-unused-vars
+   24:5   warning  'Code' is defined but never used                                 @typescript-eslint/no-unused-vars
+   25:5   warning  'MessageSquare' is defined but never used                        @typescript-eslint/no-unused-vars
+   30:5   warning  'Award' is defined but never used                                @typescript-eslint/no-unused-vars
+   31:5   warning  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+   32:5   warning  'DollarSign' is defined but never used                           @typescript-eslint/no-unused-vars
+  165:7   warning  'comparison' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+  604:53  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  604:93  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\(public)\owners\page.tsx
+   11:5    warning  'CheckCircle2' is defined but never used                         @typescript-eslint/no-unused-vars
+   13:5    warning  'Building2' is defined but never used                            @typescript-eslint/no-unused-vars
+   14:5    warning  'TrendingUp' is defined but never used                           @typescript-eslint/no-unused-vars
+   15:5    warning  'Users' is defined but never used                                @typescript-eslint/no-unused-vars
+  255:57   warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+  269:107  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  269:127  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\ai-solutions\contact\page.tsx
+  16:5  warning  'MessageSquare' is defined but never used  @typescript-eslint/no-unused-vars
+  18:5  warning  'DollarSign' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\ai-solutions\page.tsx
+    4:18  warning  'useScroll' is defined but never used        @typescript-eslint/no-unused-vars
+    4:29  warning  'useTransform' is defined but never used     @typescript-eslint/no-unused-vars
+    4:54  warning  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+    4:71  warning  'useMotionValue' is defined but never used   @typescript-eslint/no-unused-vars
+   12:5   warning  'Pause' is defined but never used            @typescript-eslint/no-unused-vars
+   35:8   warning  'Link' is defined but never used             @typescript-eslint/no-unused-vars
+  549:34  warning  'delay' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  668:39  warning  'index' is defined but never used            @typescript-eslint/no-unused-vars
+  778:87  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  827:34  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  828:19  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\landing\page.tsx
+    7:5   warning  'Play' is defined but never used                                 @typescript-eslint/no-unused-vars
+    9:5   warning  'Users' is defined but never used                                @typescript-eslint/no-unused-vars
+   12:5   warning  'Video' is defined but never used                                @typescript-eslint/no-unused-vars
+   13:14  warning  'ImageIcon' is defined but never used                            @typescript-eslint/no-unused-vars
+   14:5   warning  'Plane' is defined but never used                                @typescript-eslint/no-unused-vars
+   15:5   warning  'Star' is defined but never used                                 @typescript-eslint/no-unused-vars
+   16:5   warning  'CheckCircle2' is defined but never used                         @typescript-eslint/no-unused-vars
+  167:32  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  167:37  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\marketplace\[id]\page.tsx
+   18:5   warning  'Sparkles' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  145:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  280:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  296:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\marketplace\page.tsx
+   8:5  warning  'MapPin' is defined but never used    @typescript-eslint/no-unused-vars
+   9:5  warning  'Bed' is defined but never used       @typescript-eslint/no-unused-vars
+  10:5  warning  'Bath' is defined but never used      @typescript-eslint/no-unused-vars
+  11:5  warning  'Maximize' is defined but never used  @typescript-eslint/no-unused-vars
+  12:5  warning  'Heart' is defined but never used     @typescript-eslint/no-unused-vars
+  13:5  warning  'Play' is defined but never used      @typescript-eslint/no-unused-vars
+  14:5  warning  'Sparkles' is defined but never used  @typescript-eslint/no-unused-vars
+  35:8  warning  'Link' is defined but never used      @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\owner\dashboard\page.tsx
+   66:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  144:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\owner\messages\page.tsx
+  7:34  warning  'AvatarImage' is defined but never used  @typescript-eslint/no-unused-vars
+  8:16  warning  'CardContent' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\owner\property\page.tsx
+  137:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  179:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  310:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\owner\services\page.tsx
+    3:29   warning  'CardHeader' is defined but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+    3:41   warning  'CardTitle' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  194:33   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  248:96   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  248:114  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\p\[id]\page.tsx
+   11:34  warning  'AvatarImage' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+   59:46  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  182:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  385:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\app\page.tsx
+  5:26  warning  'LayoutDashboard' is defined but never used  @typescript-eslint/no-unused-vars
+  6:10  warning  'Button' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\banners\multimedia-banner.tsx
+    6:5   warning  'Sparkles' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  138:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\booking\booking-modal.tsx
+    9:40  warning  'MapPin' is defined but never used        @typescript-eslint/no-unused-vars
+   63:50  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  111:25  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\chat\ai-chat.tsx
+   7:59  warning  'Bot' is defined but never used                    @typescript-eslint/no-unused-vars
+  46:23  warning  'setUseGemini' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\dashboard\downloads-section.tsx
+    3:10  warning  'useEffect' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+   12:5   warning  'CheckCircle2' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+   82:19  warning  'setFiles' is assigned a value but never used                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  141:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\dashboard\orders-list.tsx
+  109:31  warning  'error' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\dashboard\pack-promo-banner.tsx
+  56:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  68:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\landing\service-cards.tsx
+  8:14  warning  'ImageIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\landing\testimonials-section.tsx
+  79:37  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  79:57  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  84:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\marketplace\property-card-vertical.tsx
+  51:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\onboarding\onboarding-provider.tsx
+  69:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\onboarding\onboarding-provider.tsx:69:9
+  67 |             },
+  68 |         })
+> 69 |         setDriverInstance(driverObj)
+     |         ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  70 |
+  71 |         return () => {
+  72 |             driverObj.destroy()  react-hooks/set-state-in-effect
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\animated-card.tsx
+  42:5   warning  'listingType' is assigned a value but never used                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  61:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\connected-tour-viewer.tsx
+   11:5   warning  'Minimize2' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+   13:5   warning  'Home' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+   33:5   warning  'propertyTitle' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+   38:12  warning  'showRoomSelector' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  186:22  error    Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\connected-tour-viewer.tsx:186:22
+  184 |                     className="fixed inset-0 z-50 bg-black"
+  185 |                 >
+> 186 |                     <ViewerContent />
+      |                      ^^^^^^^^^^^^^ This component is created during render
+  187 |                 </motion.div>
+  188 |             </AnimatePresence>
+  189 |         )
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\connected-tour-viewer.tsx:74:27
+   72 |     }
+   73 |
+>  74 |     const ViewerContent = () => (
+      |                           ^^^^^^^
+>  75 |         <div className="relative w-full h-full">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  76 |             {/* Pannellum Viewer - Using iframe for CDN version */}
+      ?
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 173 |         </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 174 |     )
+      | ^^^^^^ The component is created during render here
+  175 |
+  176 |     // Fullscreen mode
+  177 |     if (isFullscreen) {  react-hooks/static-components
+  199:18  error    Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\connected-tour-viewer.tsx:199:18
+  197 |         )}>
+  198 |             <div className="aspect-video">
+> 199 |                 <ViewerContent />
+      |                  ^^^^^^^^^^^^^ This component is created during render
+  200 |             </div>
+  201 |         </div>
+  202 |     )
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\connected-tour-viewer.tsx:74:27
+   72 |     }
+   73 |
+>  74 |     const ViewerContent = () => (
+      |                           ^^^^^^^
+>  75 |         <div className="relative w-full h-full">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  76 |             {/* Pannellum Viewer - Using iframe for CDN version */}
+      ?
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 173 |         </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 174 |     )
+      | ^^^^^^ The component is created during render here
+  175 |
+  176 |     // Fullscreen mode
+  177 |     if (isFullscreen) {                                                                react-hooks/static-components
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\image-uploader.tsx
+    7:10  warning  'Progress' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+    9:30  warning  'ImageIcon' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  108:29  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  146:11  warning  'moveImage' is assigned a value but never used                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  196:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\qr-code.tsx
+  125:110  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  125:119  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\tour-360-manager.tsx
+    3:20  warning  'useEffect' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+   66:12  warning  'previewUrl' is assigned a value but never used                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  104:25  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  150:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\viewer-360.tsx
+    3:18  warning  'useThree' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+    4:31  warning  'Sphere' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+    6:28  warning  'useEffect' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+   40:5   error    Error: This value cannot be modified
+
+Modifying a value returned from a hook is not allowed. Consider moving the modification into the hook where the value is constructed.
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\viewer-360.tsx:40:5
+  38 | }) {
+  39 |     const texture = useLoader(THREE.TextureLoader, imageUrl)
+> 40 |     texture.mapping = THREE.EquirectangularReflectionMapping
+     |     ^^^^^^^ value cannot be modified
+  41 |     texture.colorSpace = THREE.SRGBColorSpace
+  42 |
+  43 |     return (             react-hooks/immutability
+   41:5   error    Error: This value cannot be modified
+
+Modifying a value returned from a hook is not allowed. Consider moving the modification into the hook where the value is constructed.
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\property\viewer-360.tsx:41:5
+  39 |     const texture = useLoader(THREE.TextureLoader, imageUrl)
+  40 |     texture.mapping = THREE.EquirectangularReflectionMapping
+> 41 |     texture.colorSpace = THREE.SRGBColorSpace
+     |     ^^^^^^^ value cannot be modified
+  42 |
+  43 |     return (
+  44 |         <group>  react-hooks/immutability
+  133:29  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\public\lead-chat.tsx
+   6:34  warning  'User' is defined but never used          @typescript-eslint/no-unused-vars
+  30:50  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  44:34  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:34  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  48:34  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\ui\image-comparison.tsx
+  4:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\ui\parallax-section.tsx
+   4:43  warning  'MotionValue' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  22:5   warning  'speed' is assigned a value but never used                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  41:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\morer\OneDrive\Documentos\INMO\src\components\ui\safe-image.tsx
+  38:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  76:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+? 155 problems (41 errors, 114 warnings)
+

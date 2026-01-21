@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publicación: Ubicación y Detalles</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2e6b65",
+                        "background-light": "#fafafa",
+                        "background-dark": "#16181d",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-display transition-colors duration-200">
+<!-- Main Container -->
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- Header & Navigation -->
+<header class="flex items-center justify-between px-4 py-4 sticky top-0 z-10 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-row items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+<div class="h-2 w-8 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+</div>
+<button class="p-2 -mr-2 text-sm font-semibold text-primary">Ayuda</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-4 sm:px-6 max-w-lg mx-auto w-full">
+<!-- Headline -->
+<div class="mb-6">
+<h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">Ubicación y Detalles</h1>
+<p class="text-gray-500 dark:text-gray-400 mt-1">Paso 2 de 3: Confirma la dirección y características.</p>
+</div>
+<!-- Map Section -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-sm border border-gray-200 dark:border-gray-800 mb-6 group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Detailed street map view of Mexico City neighborhood" data-location="Mexico City" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABAuSB8tXZWYkZDFdTK-V2PgfwOAtgzRjCTQa2Kq5dpfn2PEfIwTDLcg-R2ra9SnGGLoIp8pMw-7z9WZLeeOQnhaqLIJwpscOoObBt6SaEF-luC544NeAp4zFKxUHe-S9koAZ5PG532hBhn_vzDlmLVF5VRl01AmgHAj6hd18ThNnfCW6_K4fCJyXePSmSXU6IX0Lc4Y6i0aPHc-W5PZsG6domlNeLB2GgENLG4BDiMINXAC8tAexY6YP7qH3FD7i1ArhP-uGcnf4");'>
+</div>
+<!-- Map Overlay -->
+<div class="absolute inset-0 bg-black/5 dark:bg-black/20"></div>
+<!-- Central Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 drop-shadow-lg">
+<span class="material-symbols-outlined text-primary text-5xl fill-current" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- Edit Button -->
+<button class="absolute bottom-3 right-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-3 py-1.5 rounded-lg text-sm font-medium shadow-md flex items-center gap-1.5 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit_location</span>
+                    Editar Pin
+                </button>
+</div>
+<!-- Address Input -->
+<div class="mb-8">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Dirección completa</label>
+<div class="relative flex items-center group/input">
+<input class="w-full h-14 pl-4 pr-12 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-primary focus:ring-primary dark:focus:border-primary sm:text-base shadow-sm transition-all" placeholder="Ej. Av. Reforma 222, CDMX" type="text" value="Av. Paseo de la Reforma 483"/>
+<div class="absolute right-4 text-primary flex items-center pointer-events-none">
+<span class="material-symbols-outlined">search</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-green-600">check_circle</span>
+                    Dirección verificada
+                </p>
+</div>
+<!-- Features Section -->
+<div class="mb-8">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Características</h2>
+<div class="space-y-4 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-800">
+<!-- Bedrooms -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">bed</span>
+</div>
+<span class="text-base font-medium text-gray-700 dark:text-gray-200">Recámaras</span>
+</div>
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:text-primary hover:bg-white dark:hover:bg-gray-700 transition-all">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="w-4 text-center font-bold text-lg text-gray-900 dark:text-white">2</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-gray-600 text-primary shadow-sm hover:bg-gray-50 dark:hover:bg-gray-500 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+<div class="h-px bg-gray-100 dark:bg-gray-700 w-full"></div>
+<!-- Bathrooms -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">bathtub</span>
+</div>
+<span class="text-base font-medium text-gray-700 dark:text-gray-200">Baños</span>
+</div>
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:text-primary hover:bg-white dark:hover:bg-gray-700 transition-all">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="w-4 text-center font-bold text-lg text-gray-900 dark:text-white">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-gray-600 text-primary shadow-sm hover:bg-gray-50 dark:hover:bg-gray-500 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+<div class="h-px bg-gray-100 dark:bg-gray-700 w-full"></div>
+<!-- Parking -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">garage_home</span>
+</div>
+<span class="text-base font-medium text-gray-700 dark:text-gray-200">Estacionamiento</span>
+</div>
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:text-primary hover:bg-white dark:hover:bg-gray-700 transition-all" disabled="">
+<span class="material-symbols-outlined text-[20px] opacity-50">remove</span>
+</button>
+<span class="w-4 text-center font-bold text-lg text-gray-900 dark:text-white">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-gray-600 text-primary shadow-sm hover:bg-gray-50 dark:hover:bg-gray-500 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Description Input -->
+<div class="mb-4">
+<div class="flex justify-between items-center mb-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Descripción</label>
+<span class="text-xs text-gray-400">0/500</span>
+</div>
+<textarea class="w-full min-h-[140px] p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-primary focus:ring-primary dark:focus:border-primary sm:text-base shadow-sm resize-none" placeholder="Describe los mejores aspectos de tu propiedad, servicios cercanos, iluminación, etc."></textarea>
+</div>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-0 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 p-4 z-50">
+<div class="max-w-lg mx-auto flex gap-3">
+<button class="flex-1 py-3.5 px-4 rounded-xl border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-bold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    Anterior
+                </button>
+<button class="flex-[2] py-3.5 px-4 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-transform active:scale-[0.98] flex items-center justify-center gap-2">
+                    Siguiente
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

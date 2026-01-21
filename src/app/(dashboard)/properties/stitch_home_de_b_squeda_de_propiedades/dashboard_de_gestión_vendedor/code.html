@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2e6b65",
+                        "primary-dark": "#23524d",
+                        "background-light": "#f7f7f8",
+                        "background-dark": "#1c1e22",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "soft": "0 2px 8px rgba(0, 0, 0, 0.04)",
+                        "card": "0 1px 3px rgba(0,0,0,0.05), 0 10px 25px -5px rgba(0,0,0,0.02)"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111817] dark:text-white antialiased selection:bg-primary/20">
+<div class="relative flex min-h-screen w-full flex-col pb-24 overflow-x-hidden">
+<!-- Header Section -->
+<header class="px-6 pt-14 pb-4 flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400">Monday, Oct 24</span>
+<h1 class="text-[28px] font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
+                    Welcome back,<br/>Alejandro
+                </h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="group flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#2a2d33] shadow-soft border border-gray-100 dark:border-gray-800 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 group-hover:text-primary" style="font-variation-settings: 'FILL' 0, 'wght' 300;">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 bg-cover bg-center border-2 border-white dark:border-[#2a2d33] shadow-sm" data-alt="Portrait of Alejandro, a real estate agent" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSFWmyn53U2udvhH_ZLDjnDAeG7it1Ttq_bb4dB5e_lGuae1m4EsE4yR6liFmXB9OAjZmje7A1EXFyPG5BEljRxUnk_MNwdG1I9itP1I0KN2r7_9FsdpD4AVYGmP6ZwT0U969Cb3ToPDh-cuPdI2I07L3OLDVZ7gTHZ01RacW2BsU3lnAfz5-5wjbkTbJrBY9j5qGwpiK3B3XcYGHj09Se_Q6CCiSFwwIK60KNKe6Ak3ephUDyO5dC52RraB8pw2o_WzkjMOupY08');">
+</div>
+</div>
+</header>
+<!-- Metrics Carousel -->
+<section class="w-full overflow-hidden mb-6">
+<div class="flex overflow-x-auto gap-4 px-6 pb-4 scrollbar-hide snap-x snap-mandatory">
+<!-- Metric 1 -->
+<div class="snap-start shrink-0 w-[160px] p-5 rounded-2xl bg-white dark:bg-[#2a2d33] shadow-card border border-gray-100 dark:border-gray-800 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+<span class="text-xs font-semibold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400 px-2 py-0.5 rounded-full">+5%</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Total Views</p>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mt-0.5">1,240</p>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="snap-start shrink-0 w-[160px] p-5 rounded-2xl bg-white dark:bg-[#2a2d33] shadow-card border border-gray-100 dark:border-gray-800 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<span class="text-xs font-semibold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400 px-2 py-0.5 rounded-full">+12%</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">New Leads</p>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mt-0.5">18</p>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="snap-start shrink-0 w-[160px] p-5 rounded-2xl bg-white dark:bg-[#2a2d33] shadow-card border border-gray-100 dark:border-gray-800 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="p-2 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400">
+<span class="material-symbols-outlined text-[20px]">home_work</span>
+</div>
+<span class="text-xs font-semibold text-gray-400 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 px-2 py-0.5 rounded-full">0%</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Active Listings</p>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mt-0.5">4</p>
+</div>
+</div>
+<!-- Spacer for scroll padding -->
+<div class="w-2 shrink-0"></div>
+</div>
+</section>
+<!-- Listings Section -->
+<section class="px-6 mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-[#111817] dark:text-white">My Properties</h3>
+<a class="text-sm font-semibold text-primary hover:text-primary-dark transition-colors" href="#">See All</a>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Card 1: Active -->
+<div class="group relative bg-white dark:bg-[#2a2d33] p-3 rounded-2xl shadow-soft border border-gray-100 dark:border-gray-800 flex gap-4 transition-all hover:shadow-md">
+<div class="w-24 h-24 shrink-0 rounded-xl bg-gray-200 dark:bg-gray-700 bg-cover bg-center" data-alt="Modern loft apartment interior with large windows" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAY1gJx5hZ7Z0mhYbnfotH4tWe5qvNGt65l_4UYotOOY7vOvqwPEkRS91Bk7qKXLSmm36aeF8mQ2a5dXDjTs27SFXs0_E5hM2CqCRX0HB5SGRCK2HqdDHhS6Q-D-EzfhWR_nV9tcScGGaa7DAgypCtdGL0JxrsRUCkMFRLypvyfU9verUbXG4_N3hlZaYjHiebrlCxrUiTKkNurQDWCnF_Bx6hwPUamt2Rx0zGlNwp_OpTPAXWSs2ZXZQmsenga_5PY9zEP0hwnjAQ');">
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-base font-bold text-gray-900 dark:text-white leading-tight">Downtown Loft</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">123 Main St, Central District</p>
+</div>
+<span class="px-2 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wider">Active</span>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="text-sm font-bold text-gray-900 dark:text-white">$450,000</p>
+<button class="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                                Manage
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2: Pending -->
+<div class="group relative bg-white dark:bg-[#2a2d33] p-3 rounded-2xl shadow-soft border border-gray-100 dark:border-gray-800 flex gap-4 transition-all hover:shadow-md">
+<div class="w-24 h-24 shrink-0 rounded-xl bg-gray-200 dark:bg-gray-700 bg-cover bg-center" data-alt="Suburban family home exterior with garden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjmb9lTsNRvM6OAQlj4BspvT3QA-vSKWJ9SH5fk8vETOB1GVlNjqvAwIy0mqmPk_wVaCMFCtvBZXb-szrz_SqPh1IVCnFO8F-UerQk1A-Aa1e7wrOgtZ3QypKXMFUwgqiP56NcakNGNtbQyKerkZpTVFWic8pwzzt2FFhjgJXPw4Hz4ArZySdwZodNZm92eLgmNoXjp0gaFGe-TKJH5hmPp4B8dr-M-BW_adNwAQnZj8YxafmyYnRIBavS3Rq9NcT2T5hgJB6ErBk');">
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-base font-bold text-gray-900 dark:text-white leading-tight">Sunset Villa</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">45 Ocean Dr, Westside</p>
+</div>
+<span class="px-2 py-1 rounded-md bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-[10px] font-bold uppercase tracking-wider">Pending</span>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="text-sm font-bold text-gray-900 dark:text-white">$1,200,000</p>
+<button class="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                                Manage
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3: Sold -->
+<div class="group relative bg-white dark:bg-[#2a2d33] p-3 rounded-2xl shadow-soft border border-gray-100 dark:border-gray-800 flex gap-4 transition-all hover:shadow-md opacity-80">
+<div class="w-24 h-24 shrink-0 rounded-xl bg-gray-200 dark:bg-gray-700 bg-cover bg-center grayscale" data-alt="Modern city condo building exterior" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCD6zo3iHB4pCz6PDTe4_f-I7rqvicsQdRYWRedrlK1y7_0yXgy1-0d4SOnS1hoe6nsLsCDbX71troywo9HrbEgETSZkTs163po74J2JxBeQZWD22dQgLCzoLie5PQX834e-FrSripJ-H5L_7WaOAy1HvTLQb9BgmhSob1qbALlfvHHhdXL70TNMyEtjbNTR7_enuWqH3EipUJnITt32e_TEAPILe6KfDGeOcHnymsNw0ssJaAGoJyuO9W2URTfL7YSTqTdNRvx03w');">
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-base font-bold text-gray-900 dark:text-white leading-tight">City Condo</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">88 Broad St, Downtown</p>
+</div>
+<span class="px-2 py-1 rounded-md bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-[10px] font-bold uppercase tracking-wider">Sold</span>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="text-sm font-bold text-gray-900 dark:text-white">$320,000</p>
+<button class="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                                Details
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Inquiries Section -->
+<section class="px-6 pb-6">
+<h3 class="text-lg font-bold text-[#111817] dark:text-white mb-4">Latest Activity</h3>
+<div class="flex flex-col bg-white dark:bg-[#2a2d33] rounded-2xl shadow-card border border-gray-100 dark:border-gray-800 divide-y divide-gray-100 dark:divide-gray-800">
+<!-- Inquiry 1 -->
+<div class="p-4 flex gap-3 items-start">
+<div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm font-bold shrink-0">
+                        SM
+                    </div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-0.5">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white">Sarah Miller</h4>
+<span class="text-xs text-gray-400">2h ago</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 truncate">Is this property available for a visit on Tuesday?</p>
+<div class="flex items-center gap-1 mt-1.5">
+<span class="text-[10px] text-gray-400 bg-gray-50 dark:bg-gray-700 px-1.5 py-0.5 rounded">Downtown Loft</span>
+</div>
+</div>
+</div>
+<!-- Inquiry 2 -->
+<div class="p-4 flex gap-3 items-start">
+<div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0" data-alt="Portrait of James Chen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6HvA3mSyltqVwpQrgVRNTZ0wFOWdsVFuCfMw5qc3tBw6_dQPfP6t8OL1i-MkzcenvV34KW85-8MPd5qBcOQlCxJhH7puITRlQk4D3iWTGk90Q5eItGtJuQSBOX_LEUdYw8fmISWoNomRbc9M5dqV6KUTsy-APtztUr1VHCp6Yrqt0s5KqZpF43Pg4FfCJ0fTo8cDglb6fnSPQdXrI4A0886lQiHCIjixQVFWg8BX6P4vTzBYHlG5GspjO_bfsI_mBIey_Zxqez7Y');">
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-0.5">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white">James Chen</h4>
+<span class="text-xs text-gray-400">5h ago</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 truncate">I've sent the signed counter-offer documents.</p>
+<div class="flex items-center gap-1 mt-1.5">
+<span class="text-[10px] text-gray-400 bg-gray-50 dark:bg-gray-700 px-1.5 py-0.5 rounded">Sunset Villa</span>
+</div>
+</div>
+</div>
+<!-- Inquiry 3 -->
+<div class="p-4 flex gap-3 items-start">
+<div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-sm font-bold shrink-0">
+                        RK
+                    </div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-0.5">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white">Robert King</h4>
+<span class="text-xs text-gray-400">1d ago</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 truncate">New lead via Zillow.</p>
+<div class="flex items-center gap-1 mt-1.5">
+<span class="text-[10px] text-gray-400 bg-gray-50 dark:bg-gray-700 px-1.5 py-0.5 rounded">General Inquiry</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-4 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:bg-primary-dark active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/30">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-white dark:bg-[#1f2125] border-t border-gray-200 dark:border-gray-800 pb-safe pt-2 z-50">
+<div class="flex justify-around items-center h-16">
+<button class="flex flex-col items-center gap-1 w-16 text-primary">
+<span class="material-symbols-outlined filled" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+<span class="material-symbols-outlined">real_estate_agent</span>
+<span class="text-[10px] font-medium">Listings</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-medium">Chat</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+<!-- Fix for iOS safe area padding at bottom if needed manually -->
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+</body></html>

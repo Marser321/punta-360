@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalle de la Propiedad</title>
+<!-- Theme Configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2e6b65",
+                        "background-light": "#f6f5f3",
+                        "background-dark": "#242628",
+                        "dark-charcoal": "#31363A",
+                        "medium-grey": "#788188",
+                        "muted-coral": "#F5B89C",
+                        "grey-blue": "#CBD2D9",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", // rounded-md matches 8px approximately
+                        "md": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft-up': '0 -4px 20px -5px rgba(46, 107, 101, 0.1)',
+                        'card': '0 4px 12px rgba(0, 0, 0, 0.03)',
+                    }
+                },
+            },
+        }
+    </script>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Gradient for image overlay */
+        .image-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-dark-charcoal dark:text-gray-100 antialiased overflow-x-hidden pb-24">
+<!-- Top Navigation & Image Carousel Container -->
+<div class="relative w-full aspect-[4/3] bg-gray-200">
+<!-- Carousel Images -->
+<div class="flex overflow-x-auto snap-x snap-mandatory w-full h-full hide-scrollbar">
+<!-- Image 1 -->
+<div class="w-full h-full flex-shrink-0 snap-center bg-cover bg-center" data-alt="Modern living room with high ceilings and large windows opening to a garden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4N0ff1BJAqtkY-VuPpyep8C2SGWgqViqdp1Z1nOaVT25k_l9CA72HO8ez5dHv9FkMB3XvjF13m16549CcgUdUreVGoaljRegmgMsqDINHxwTz6s2M26U4Old_1z6-Pix95j3cFilrY2NxXYT05WiKN3GJk7SoFZqAuGsxpL2Gl1-5RyJ4MYKrxruDmIB9wefIOyAPrPzFoy-1wo5DFnoz-Z6Cc6Gs5wt4570bFNVueXBy3DZxnSffANTgYQOLxHsovKEtu4fSvMU');">
+</div>
+<!-- Image 2 -->
+<div class="w-full h-full flex-shrink-0 snap-center bg-cover bg-center" data-alt="Minimalist kitchen with marble island and wooden cabinetry" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2TrMZm3S2Hv-lfnORhh3szvBwcpauuSL5JA58J2Ai1LMjW0Tqk-zrNtmqK-iTFZWe3tg6W-Wb9f6ShtXcjjZAMRLkbuL2k1HODVPQBMieZY8bXxyZDEw7SzmOcvxjP78-OsScyhfE5xFbXhqb5ffk6oXw7ZeCv6AtW0dykoBFku5dS4cj2nO10DVbDvy01UXVj4onMME_n7mpOJECNJQZ6coyn2rayE04pxNZRkn_Qsz2xbQ0mqRqSwKqKcRLn0kEe3eqTueoR0g');">
+</div>
+<!-- Image 3 -->
+<div class="w-full h-full flex-shrink-0 snap-center bg-cover bg-center" data-alt="Spacious master bedroom with neutral tones and soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqX8cBHmBglClLI1ksESczp8f87-YhDhW_EfowEureF43zI3l8b_UXdbk9GO-SFg7-4FO-DxHInKFT04lWNXDeNsFX0rzncKyqZ1GUDMnPYPf8e15HxOX2UXNjyrM2BT4jsMwszYPUvoiUO5jUDnh7nNWdR8wnxXSNnaDMhCK1UlRWqSt8Y6Uyz3gBqw3Uq3msSgh4-UimtTNHwh67hQVBCaH3cFk1Emly8u8KWr5cfahHnZo6XqCnlrVO-RCWJwPhZwuXr9QJkAA');">
+</div>
+</div>
+<!-- Top Navigation Overlay -->
+<div class="absolute top-0 left-0 w-full h-24 image-overlay flex items-start justify-between px-5 pt-12 z-10">
+<button class="bg-white/20 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<div class="flex gap-3">
+<button class="bg-white/20 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined text-white" style="font-size: 24px;">share</span>
+</button>
+<button class="bg-white/20 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-white/30 transition-colors group">
+<span class="material-symbols-outlined text-white group-active:text-red-500 transition-colors" style="font-size: 24px;">favorite</span>
+</button>
+</div>
+</div>
+<!-- Image Counter -->
+<div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-semibold tracking-wide">
+            1 / 15
+        </div>
+<!-- Pagination Dots (Simplified) -->
+<div class="absolute bottom-4 left-0 w-full flex justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white shadow-sm"></div>
+<div class="w-2 h-2 rounded-full bg-white/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/50"></div>
+</div>
+</div>
+<!-- Main Content Container -->
+<div class="px-5 pt-6 flex flex-col gap-6 -mt-4 relative z-20 bg-background-light dark:bg-background-dark rounded-t-2xl">
+<!-- Price & Title Section -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h1 class="text-dark-charcoal dark:text-white font-extrabold text-[28px] tracking-tight leading-none">$4,500,000 <span class="text-lg font-bold text-medium-grey dark:text-gray-400">MXN</span></h1>
+<span class="bg-muted-coral/20 text-[#D97757] text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wider">Venta</span>
+</div>
+<h2 class="text-dark-charcoal dark:text-gray-100 text-xl font-bold leading-tight mt-2">Casa Moderna en Condesa</h2>
+<div class="flex items-center gap-1.5 mt-1 text-medium-grey dark:text-gray-400">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<p class="text-sm font-medium leading-normal">Av. Amsterdam 123, Hipódromo, CDMX</p>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px bg-grey-blue/30 w-full"></div>
+<!-- Attribute Grid -->
+<div class="grid grid-cols-4 gap-2">
+<!-- Area -->
+<div class="flex flex-col items-center justify-center p-3 bg-white dark:bg-zinc-800 rounded-md shadow-card border border-transparent hover:border-grey-blue/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-2xl mb-1">square_foot</span>
+<span class="text-dark-charcoal dark:text-white font-bold text-sm">120 m²</span>
+<span class="text-medium-grey dark:text-gray-500 text-[10px] uppercase tracking-wide font-semibold">Total</span>
+</div>
+<!-- Bedrooms -->
+<div class="flex flex-col items-center justify-center p-3 bg-white dark:bg-zinc-800 rounded-md shadow-card border border-transparent hover:border-grey-blue/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-2xl mb-1">bed</span>
+<span class="text-dark-charcoal dark:text-white font-bold text-sm">3</span>
+<span class="text-medium-grey dark:text-gray-500 text-[10px] uppercase tracking-wide font-semibold">Recámaras</span>
+</div>
+<!-- Bathrooms -->
+<div class="flex flex-col items-center justify-center p-3 bg-white dark:bg-zinc-800 rounded-md shadow-card border border-transparent hover:border-grey-blue/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-2xl mb-1">bathtub</span>
+<span class="text-dark-charcoal dark:text-white font-bold text-sm">2</span>
+<span class="text-medium-grey dark:text-gray-500 text-[10px] uppercase tracking-wide font-semibold">Baños</span>
+</div>
+<!-- Parking -->
+<div class="flex flex-col items-center justify-center p-3 bg-white dark:bg-zinc-800 rounded-md shadow-card border border-transparent hover:border-grey-blue/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-2xl mb-1">directions_car</span>
+<span class="text-dark-charcoal dark:text-white font-bold text-sm">1</span>
+<span class="text-medium-grey dark:text-gray-500 text-[10px] uppercase tracking-wide font-semibold">Estac.</span>
+</div>
+</div>
+<!-- Description Section -->
+<div class="bg-white dark:bg-zinc-800 p-5 rounded-md shadow-card">
+<h3 class="text-dark-charcoal dark:text-white font-bold text-lg mb-3">Descripción</h3>
+<div class="relative">
+<p class="text-medium-grey dark:text-gray-300 text-base font-normal leading-relaxed line-clamp-4">
+                    Hermosa casa recién remodelada con acabados de lujo en el corazón de la Condesa. Cuenta con amplios espacios iluminados naturalmente, cocina integral con cubierta de granito, y pisos de madera de ingeniería. La propiedad incluye un roof garden privado ideal para reuniones sociales. Ubicación privilegiada a pasos del Parque México y rodeada de los mejores restaurantes y cafeterías de la zona.
+                </p>
+<button class="text-primary font-bold text-sm mt-2 flex items-center gap-1 hover:underline">
+                    Leer más <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Location Map Preview -->
+<div class="bg-white dark:bg-zinc-800 p-5 rounded-md shadow-card flex flex-col gap-3">
+<h3 class="text-dark-charcoal dark:text-white font-bold text-lg">Ubicación</h3>
+<div class="w-full h-40 bg-gray-100 rounded-md overflow-hidden relative group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgCqkEPhuo5Az0NdVSiLsMeE6QufTs92ZRB4kmLnGxzRGWZsCoq3_bdJdUPwe4Eh59k66RJVo1KmGot88wlYbcH2lUY_3NxkA6NtiGO-NNkyj_VrRGYOmgkUtsSKICYXbGZZlUI9nj7BMd5eTrmKS1Y3WZzeYOpRtLigaRaUpRQXRi2zooYp8VO-fVEcDBU_GIBh_n1onjoMHoWQzRZ-W3EC3jb-eFy716piIJo91P_gu1RAacCV-AzvkAC1x4Q3ZXfIE6wixMlBI'); background-size: 50%; opacity: 0.1;"></div>
+<!-- Mock Map Image -->
+<div class="w-full h-full bg-cover bg-center" data-alt="Map showing the streets of Condesa neighborhood in Mexico City" data-location="Mexico City" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4kRM8RV5TpQa_iTUXaUs3UJPk4JMeM38IRUXBuyv9jsSDZw-In9TQY9rH8H2j_s1BM3ADmwttzOIW8igQwx7Fdoy7YCQId_4GspNrSe5NoHuG8J0lVQIwl-cxS0SIS5LNcVniVK-vzg8w1fTgPyMky3OVbVimT4a6i7FvQENZeZuQKJG6WEP5yv0otifJMkDTBElnmKVFhi29tDSq9OOGBnksjUv4KX3dR-ZaZxmGHArPtFg_5rAVMAqjMTc2fUT1IN3rHlTwsfw');"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg transform group-hover:-translate-y-1 transition-transform">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+</div>
+</div>
+<p class="text-medium-grey dark:text-gray-400 text-sm">Hipódromo Condesa, Cuauhtémoc, 06100 Ciudad de México, CDMX</p>
+</div>
+<!-- Agent Card -->
+<div class="flex items-center justify-between bg-white dark:bg-zinc-800 p-4 rounded-md shadow-card mb-6">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-gray-200 bg-cover bg-center border-2 border-white dark:border-zinc-700 shadow-sm" data-alt="Portrait of a female real estate agent smiling professionally" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDmandTlzfnGGb83iowj0oZjA7nLFUEwYXX2mhB7M8AGi3EFe8Krtc0FRI2gUbSldpYYSTbTUpXK7CJnMopurCd0dUCQBcSfZbLEi44BHJXS49Oc2-4vjI_BuOrrvzORqtKOkx-uAQFQQrBmnq1RKhmr3Zh7vPsZwOb5175EYqgoM_KKwOFgU4aQDEh76PmNAizUCDdpE16hRUVSgkAJ9BauOQM8OdEKKlnLV1IAV1lFFJ1xupweHrHOXkwJJYW4z8grhpnFQFsNyg');"></div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white rounded-full p-0.5 border-2 border-white dark:border-zinc-800">
+<span class="material-symbols-outlined text-[12px] block">check</span>
+</div>
+</div>
+<div>
+<h4 class="text-dark-charcoal dark:text-white font-bold text-base leading-tight">Sofia Mendez</h4>
+<p class="text-medium-grey dark:text-gray-400 text-xs mt-0.5">Agente Certificada</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full border border-grey-blue/40 flex items-center justify-center text-primary hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+<!-- Sticky Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-zinc-800 p-4 pb-8 flex items-center gap-3 shadow-soft-up z-50">
+<button class="flex-1 h-12 rounded-md border border-primary text-primary font-bold text-base flex items-center justify-center gap-2 hover:bg-primary/5 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+            Chatear
+        </button>
+<button class="flex-[1.5] h-12 rounded-md bg-primary text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors active:scale-95 active:shadow-sm">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+            Agendar Visita
+        </button>
+</div>
+</body></html>

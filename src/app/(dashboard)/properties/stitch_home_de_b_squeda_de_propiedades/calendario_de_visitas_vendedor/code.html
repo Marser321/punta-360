@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calendario de Visitas</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1fadad",
+                        "primary-dark": "#178a8a",
+                        "background-light": "#fafafa",
+                        "background-dark": "#16181d",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#23262f",
+                        "text-main": "#0f1a1a",
+                        "text-secondary": "#539393",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'floating': '0 10px 25px -5px rgba(31, 173, 173, 0.25)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary/20">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md pt-6 pb-2 px-6 transition-all duration-300">
+<div class="flex items-center justify-between mb-6">
+<button class="flex items-center justify-center size-10 rounded-full bg-white dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800 text-text-main hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold text-text-main dark:text-white">Mi Calendario</h1>
+<button class="flex items-center justify-center size-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBOTaufzncJOeNW5MPqySvTunsUiBXxvUWZWS2UKwRvEA82YaGFX28K8XkwIznUEELBJa7q2ky3BnDXgvjRDvPXBC53MduBLSLrcZ4kJNI9TO4MFaebow-JU0K3keAbnppPKdnYfIMpj6CGMKbKYU7KNs0FzgzxGi8_EWjP5PvBugav7n02M1fjKlZkzQsMYJNVdlJy7HhcRHfEw5FzIoLh4IDnbMnv8YLDYjB6etRsnyimiDpbfVG-6w97RTPLRoJNpFS4OYZ0zg"/>
+</button>
+</div>
+<!-- Calendar Strip -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<span class="text-base font-bold text-text-main dark:text-white">Octubre 2023</span>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-slate-100 rounded-full dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-text-secondary" style="font-size: 20px;">chevron_left</span>
+</button>
+<button class="p-1 hover:bg-slate-100 rounded-full dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-text-secondary" style="font-size: 20px;">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Days Strip -->
+<div class="flex overflow-x-auto scrollbar-hide gap-3 pb-2 -mx-6 px-6 snap-x">
+<!-- Past Day -->
+<button class="flex flex-col items-center justify-center min-w-[60px] h-[76px] rounded-2xl bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 text-slate-400 snap-start flex-shrink-0">
+<span class="text-xs font-medium mb-1">Lun</span>
+<span class="text-lg font-bold">16</span>
+</button>
+<!-- Past Day -->
+<button class="flex flex-col items-center justify-center min-w-[60px] h-[76px] rounded-2xl bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 text-text-main dark:text-slate-300 snap-start flex-shrink-0">
+<span class="text-xs font-medium mb-1 text-text-secondary">Mar</span>
+<span class="text-lg font-bold">17</span>
+</button>
+<!-- Active Day -->
+<button class="group flex flex-col items-center justify-center min-w-[60px] h-[76px] rounded-2xl bg-primary shadow-lg shadow-primary/30 text-white snap-center flex-shrink-0 transform scale-105 transition-transform">
+<span class="text-xs font-medium mb-1 opacity-90">Mié</span>
+<span class="text-xl font-bold">18</span>
+<div class="mt-1 h-1 w-1 rounded-full bg-white"></div>
+</button>
+<!-- Future Day -->
+<button class="flex flex-col items-center justify-center min-w-[60px] h-[76px] rounded-2xl bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 text-text-main dark:text-slate-300 snap-start flex-shrink-0">
+<span class="text-xs font-medium mb-1 text-text-secondary">Jue</span>
+<span class="text-lg font-bold">19</span>
+</button>
+<!-- Future Day -->
+<button class="flex flex-col items-center justify-center min-w-[60px] h-[76px] rounded-2xl bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 text-text-main dark:text-slate-300 snap-start flex-shrink-0">
+<span class="text-xs font-medium mb-1 text-text-secondary">Vie</span>
+<span class="text-lg font-bold">20</span>
+</button>
+<!-- Future Day -->
+<button class="flex flex-col items-center justify-center min-w-[60px] h-[76px] rounded-2xl bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 text-slate-400 snap-start flex-shrink-0">
+<span class="text-xs font-medium mb-1">Sáb</span>
+<span class="text-lg font-bold">21</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col px-6 pt-4 pb-28 relative z-0">
+<!-- Segmented Control -->
+<div class="bg-slate-100 dark:bg-surface-dark p-1 rounded-xl flex mb-8">
+<button class="flex-1 py-2 px-4 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-primary text-sm font-bold transition-all">
+                    Próximas
+                </button>
+<button class="flex-1 py-2 px-4 rounded-lg text-text-secondary dark:text-slate-400 text-sm font-medium hover:text-text-main transition-all">
+                    Pendientes
+                    <span class="ml-1 inline-flex items-center justify-center bg-red-500 text-white text-[10px] h-4 min-w-[16px] px-1 rounded-full font-bold">1</span>
+</button>
+</div>
+<!-- Visits Timeline -->
+<div class="flex flex-col gap-6 relative">
+<!-- Timeline Vertical Line -->
+<div class="absolute left-[26px] top-4 bottom-0 w-[2px] bg-slate-100 dark:bg-slate-800 -z-10"></div>
+<!-- Urgent/Pending Item (Injected for visibility as requested by logic) -->
+<div class="flex gap-4 items-start">
+<div class="flex flex-col items-center w-14 pt-1 flex-shrink-0">
+<span class="text-sm font-bold text-slate-400">08:00</span>
+<span class="text-[10px] font-medium text-slate-400 uppercase">AM</span>
+</div>
+<div class="flex-1 bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-soft border-l-4 border-amber-400">
+<div class="flex justify-between items-start mb-3">
+<div>
+<div class="inline-flex items-center gap-1 bg-amber-50 dark:bg-amber-900/30 px-2 py-0.5 rounded-md mb-2">
+<span class="material-symbols-outlined text-amber-500 text-[14px]">hourglass_top</span>
+<span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wide">Pendiente</span>
+</div>
+<h3 class="font-bold text-text-main dark:text-white leading-tight">Modern Loft 2B</h3>
+<p class="text-xs text-text-secondary mt-0.5">Av. Reforma 220, Piso 8</p>
+</div>
+<div class="size-12 rounded-lg bg-slate-100 overflow-hidden flex-shrink-0" data-alt="Modern loft apartment interior with large windows">
+<img class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvVtcPrfQFtr_D9VY4FIanluJvTCyUAzWFLRwge78LThA-KYc7x_oWVHTbVTwqucr_r5x5vFeCR90VG4AOXczhANGpHzIoniN9eduTgxZG5Fr38G2UYo0Moir50KDJe5iwrUEcuuCoxvZz644d6SxkdvCeDenGU2QNZZfUFT6WhfE4y6sx-xZnqiawf6R0x54eU4JjQrE7qXi4spNF04_CR0YK-6Ipxc_BuELejAUn2IBpmDHH0POWy1W85KHB2WyZS4iOCXYW1oM"/>
+</div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<img alt="Buyer" class="size-8 rounded-full border-2 border-white dark:border-surface-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS53_8dYnZYbQgAiH79-rux3Fbcfkzm7eykQwLzGM7mgPC8CN8qJUTacWPDF1IYYkqmwtcL2pRcS9IdcXNtO2QgAJJdPlMtTJsfl5Ruk9mQI6TWNHU7_XNfKmTr1DdAvs61XSHZslsDAhTauj39RyM0OI-cleGi-AOjQhGBIMZcDxYK7GCEIL0KWGcGCwO2_ppnjiEiCAQoogMsU945_-eUfpfO4U2QW4Mbtc6QA3qvrr10oo9PRv4zYvk-0HdO9zfW2wZHnU2l0M"/>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main dark:text-white">Alex Johnson</span>
+<span class="text-xs text-text-secondary">Posible Comprador</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 h-9 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                Rechazar
+                            </button>
+<button class="flex-1 h-9 flex items-center justify-center rounded-lg bg-text-main text-white text-xs font-bold shadow-sm hover:bg-black transition-colors">
+                                Aceptar
+                            </button>
+</div>
+</div>
+</div>
+<!-- Confirmed Item 1 -->
+<div class="flex gap-4 items-start">
+<div class="flex flex-col items-center w-14 pt-1 flex-shrink-0">
+<span class="text-sm font-bold text-text-main dark:text-white">09:30</span>
+<span class="text-[10px] font-medium text-text-secondary uppercase">AM</span>
+</div>
+<div class="flex-1 bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-soft">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-bold text-text-main dark:text-white leading-tight text-lg">Villa Sunshine</h3>
+<p class="text-xs text-text-secondary mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                    Calle Las Palmas 45
+                                </p>
+</div>
+<div class="size-16 rounded-xl bg-slate-100 overflow-hidden flex-shrink-0 ml-2" data-alt="Sunny villa exterior with palm trees">
+<img class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa18AnHGkfsEAojV8d6dC-xj9zIikTY7esCcCC8a0NstHWDolbUGmypArp_4ycEBJzk-V4pXGjmqRzRIdMkK7EmamEU-o0zNVEX8x4bu0qiarsiSaWneoSCO-udMpDYji5tK-kaYVjokIUP2FfMq4ySWSzetr_E_DQZommcXr-h38lzoH6V0rfyqFTI1eH0x_g1lXDhPN7-g4Jq8aPFDzVA-vADHN-QnkAXya-iXtJxjAG86pfX_QihQ6Y94DgI6pnS1p-mBsaVo0"/>
+</div>
+</div>
+<div class="h-px bg-slate-100 dark:bg-slate-800 w-full my-3"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Buyer" class="size-9 rounded-full border-2 border-white dark:border-surface-dark shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRP9vpgzIL5skKTeYTdN10z-Yo0ggsaBheGfal-ztcBrdrzo_7as-5wU0BsFWhb4FDnOpxBYhVDzpSXGEQkrUcySw9hcp72RwN2GGVt7C5PuHDOMjEND69AdZemfjrrWHTd1ppiHqJCsyi3SPVZ-W6WYexVzQwRiBDRXi815AoCLRm8fYpZwDUtTZBn0trHQU7UlqKF32KHcrHyI6EmoAxOZn6UTDnWEhZz714iDmLZSVu_rrrYh7dqHPM_GT4UxOzEfr54yMN0Dc"/>
+<div class="absolute -bottom-0.5 -right-0.5 size-3 bg-green-500 border-2 border-white dark:border-surface-dark rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main dark:text-white">Juan Pérez</span>
+<span class="text-[10px] font-medium text-primary bg-primary/10 px-1.5 py-0.5 rounded self-start">Confirmado</span>
+</div>
+</div>
+<button class="size-10 flex items-center justify-center rounded-full border border-primary/30 text-primary bg-primary/5 hover:bg-primary hover:text-white transition-all shadow-sm group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-size: 20px;">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Confirmed Item 2 -->
+<div class="flex gap-4 items-start">
+<div class="flex flex-col items-center w-14 pt-1 flex-shrink-0">
+<span class="text-sm font-bold text-text-main dark:text-white">14:00</span>
+<span class="text-[10px] font-medium text-text-secondary uppercase">PM</span>
+</div>
+<div class="flex-1 bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-soft">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-bold text-text-main dark:text-white leading-tight text-lg">Downtown Studio</h3>
+<p class="text-xs text-text-secondary mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                    Centro Histórico 901
+                                </p>
+</div>
+<div class="size-16 rounded-xl bg-slate-100 overflow-hidden flex-shrink-0 ml-2" data-alt="Modern studio apartment interior">
+<img class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFqfW_kwpcbMiJKixrJV0Ir-38rvOfD7VKm6rXB91JDgo37H_jLLs14MSaZA1xJL0w9WmOY8U6GorkUBVXTWGICs69PZ7rz_I_rcCeArdkLE-hRYl9L4I-3hbwmvs3YjAJxV8918onpsWfqwBA5lGmQKtDLaSdcBevF2tITIv4MFLCMx8tnAEowJwjq8Wal67tEpMSpH8WbUYUaptRGKSugjIXLSlHHTzNPDbuw7Ph5NDlkXM3LsRm0T8QPTvNFP64GNkV7q5G7EQ"/>
+</div>
+</div>
+<div class="h-px bg-slate-100 dark:bg-slate-800 w-full my-3"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Buyer" class="size-9 rounded-full border-2 border-white dark:border-surface-dark shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUoTtScz6GjtRMTdpzlLEvIYy1Uf3lYZZhSbcYLxxIa311f0OjhYAMQIYSF7oLuhnh33IiA-WHcXMHJV6eutyec8cloNQITWTYOSgwdZ-dJEQ8jbfYGFhxr4xsdw061mDm9O8uUW2puU9beNpoZ6zehuNo77vZAAcao6e_5Ccm4dQTpiiQb321aay5Xr-6SH82JIpJjP50EmO71JTmbqyZ4U3o9W8zVWj4hVWwmm8h_ndiL_OfcBG0CEtNgNa3lA1h4ILfSQETkkc"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main dark:text-white">María Garcia</span>
+<span class="text-[10px] font-medium text-primary bg-primary/10 px-1.5 py-0.5 rounded self-start">Confirmado</span>
+</div>
+</div>
+<button class="size-10 flex items-center justify-center rounded-full border border-primary/30 text-primary bg-primary/5 hover:bg-primary hover:text-white transition-all shadow-sm group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-size: 20px;">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty Slot Indication -->
+<div class="flex gap-4 items-center opacity-40 hover:opacity-100 transition-opacity cursor-pointer group">
+<div class="flex flex-col items-center w-14 flex-shrink-0">
+<span class="text-xs font-bold text-text-secondary">16:00</span>
+</div>
+<div class="flex-1 h-px bg-slate-200 dark:bg-slate-700"></div>
+<div class="px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-400 group-hover:text-primary group-hover:border-primary transition-colors">
+                        Disponible
+                    </div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pt-12 max-w-md mx-auto z-30 pointer-events-none">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold text-base py-4 rounded-2xl shadow-floating transform transition-all active:scale-[0.98] flex items-center justify-center gap-2 pointer-events-auto">
+<span class="material-symbols-outlined">add_circle</span>
+                Agregar Disponibilidad
+            </button>
+</div>
+</div>
+</body></html>

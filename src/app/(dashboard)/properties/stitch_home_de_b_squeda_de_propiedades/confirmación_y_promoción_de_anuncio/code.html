@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmación de Anuncio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00fac8",
+                        "background-light": "#fafafa",
+                        "background-dark": "#172530",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1f2e3a",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                    boxShadow: {
+                        "soft": "0 4px 20px rgba(0,0,0,0.05)",
+                        "glow": "0 0 15px rgba(0, 250, 200, 0.3)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-hidden pb-24">
+<!-- Header / Success Message -->
+<div class="flex flex-col items-center pt-8 pb-4 px-6 text-center animate-fade-in-down">
+<div class="relative mb-6">
+<div class="flex items-center justify-center size-20 rounded-full bg-primary/20 dark:bg-primary/10 shadow-glow">
+<span class="material-symbols-outlined text-primary text-5xl">check_circle</span>
+</div>
+<!-- Decorative confetti icons -->
+<span class="material-symbols-outlined absolute top-0 -right-4 text-yellow-400 animate-bounce" style="animation-delay: 0.1s; font-size: 20px;">star</span>
+<span class="material-symbols-outlined absolute bottom-0 -left-4 text-purple-400 animate-bounce" style="animation-delay: 0.3s; font-size: 16px;">celebration</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight mb-2 tracking-tight">¡Tu propiedad está en línea!</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-relaxed max-w-xs mx-auto">
+                Felicitaciones. Los compradores ya pueden ver tu anuncio y contactarte.
+            </p>
+</div>
+<!-- Listing Preview Card -->
+<div class="px-4 mb-8 w-full max-w-md mx-auto">
+<div class="flex items-center gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-3 shadow-soft border border-slate-100 dark:border-slate-700/50">
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-slate-200 relative">
+<div class="w-full h-full bg-center bg-cover" data-alt="Modern apartment interior with large windows" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7CH5TzuY2gDTKnAHNhfd5ecmQaEucbYsRURAbq_yYtALhRcRSLvleaVw0stXQyCvnFB3mIz4Zu75pSCc6q0zKSe84lzXr-OVmdtKp4EE7g0TBHVab88TW3gFcRJXrxNpQCF3yF_Ls8XPCVtSIcPg6N9aKNiXB7Q5ied8wyAaf32iV2WhmGy69zfxpKSrHRb38VSmAmSwNl7h5bVrTkSsG21swYIsxYYnzGWC6ERUlrmcZ2nSTHOCTznYnM5IX07SNKc-JwXPMFuY");'></div>
+</div>
+<div class="flex flex-col flex-1 justify-center min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/30 px-2 py-0.5 text-xs font-bold text-green-700 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500 mr-1.5"></span>
+                            Activo
+                        </span>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight truncate">$250,000</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Calle Principal 123, Ciudad
+                    </p>
+</div>
+<div class="shrink-0 pr-2">
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Promotion Section -->
+<div class="flex-1 w-full max-w-md mx-auto px-4">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold tracking-tight">Acelera tu venta</h2>
+<span class="text-xs font-semibold text-primary uppercase tracking-wider bg-primary/10 px-2 py-1 rounded">Recomendado</span>
+</div>
+<div class="space-y-4">
+<!-- Silver Tier -->
+<label class="group relative flex cursor-pointer rounded-2xl border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark p-4 shadow-sm transition-all hover:border-primary/50">
+<input class="peer sr-only" name="promotion" type="radio" value="silver"/>
+<div class="flex w-full items-start gap-4">
+<div class="mt-1 flex size-6 shrink-0 items-center justify-center rounded-full border border-slate-300 dark:border-slate-600 peer-checked:border-primary peer-checked:bg-primary text-transparent peer-checked:text-slate-900 transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-slate-900 dark:text-white">Básico (Silver)</span>
+<span class="font-bold text-slate-900 dark:text-white">Gratis</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Visibilidad estándar en el listado.</p>
+</div>
+</div>
+<div class="absolute -inset-px rounded-2xl border-2 border-transparent peer-checked:border-primary pointer-events-none"></div>
+</label>
+<!-- Gold Tier (Pre-selected) -->
+<label class="group relative flex cursor-pointer rounded-2xl border bg-surface-light dark:bg-surface-dark p-5 shadow-md transition-all ring-0 ring-primary/20">
+<input checked="" class="peer sr-only" name="promotion" type="radio" value="gold"/>
+<!-- Popular Badge -->
+<div class="absolute -top-3 right-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm z-10">
+                        MÁS POPULAR
+                    </div>
+<div class="flex w-full flex-col gap-3">
+<div class="flex items-start gap-4">
+<div class="mt-1 flex size-6 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 peer-checked:bg-primary text-slate-400 peer-checked:text-slate-900 transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                                        Gold
+                                        <span class="material-symbols-outlined text-yellow-500 text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<div class="text-right">
+<span class="block text-lg font-bold text-slate-900 dark:text-white">$19.99</span>
+<span class="block text-[10px] text-slate-400 line-through">$29.99</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Benefits list for Gold -->
+<div class="pl-10 space-y-2">
+<div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[18px]">trending_up</span>
+<span>Destacado en búsquedas</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>Etiqueta "Premium"</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[18px]">visibility</span>
+<span>3x más visitas estimadas</span>
+</div>
+</div>
+</div>
+<!-- Active Border Overlay -->
+<div class="absolute -inset-px rounded-2xl border-2 border-transparent peer-checked:border-primary pointer-events-none"></div>
+<!-- Active Background Tint -->
+<div class="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></div>
+</label>
+<!-- Platinum Tier -->
+<label class="group relative flex cursor-pointer rounded-2xl border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark p-4 shadow-sm transition-all hover:border-primary/50">
+<input class="peer sr-only" name="promotion" type="radio" value="platinum"/>
+<div class="flex w-full items-start gap-4">
+<div class="mt-1 flex size-6 shrink-0 items-center justify-center rounded-full border border-slate-300 dark:border-slate-600 peer-checked:border-primary peer-checked:bg-primary text-transparent peer-checked:text-slate-900 transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    Platinum
+                                    <span class="material-symbols-outlined text-purple-500 text-lg" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</span>
+<span class="font-bold text-slate-900 dark:text-white">$49.99</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Todo lo de Gold + Campaña en Redes Sociales y Email Marketing.</p>
+</div>
+</div>
+<div class="absolute -inset-px rounded-2xl border-2 border-transparent peer-checked:border-primary pointer-events-none"></div>
+</label>
+</div>
+</div>
+<!-- Sticky Footer Action -->
+<div class="fixed bottom-0 left-0 right-0 z-20">
+<!-- Gradient fade above footer -->
+<div class="h-8 w-full bg-gradient-to-b from-transparent to-background-light dark:to-background-dark"></div>
+<div class="bg-background-light dark:bg-background-dark px-6 pb-8 pt-2">
+<div class="w-full max-w-md mx-auto flex flex-col gap-3">
+<button class="group relative flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 px-6 text-center font-bold text-slate-900 shadow-[0_4px_14px_0_rgba(0,250,200,0.39)] transition-transform active:scale-[0.98] hover:shadow-[0_6px_20px_rgba(0,250,200,0.23)]">
+<span>Promocionar Anuncio</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full py-2 text-center text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">
+                        Omitir por ahora
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

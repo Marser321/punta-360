@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publicar Propiedad - Información Básica</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#339988",
+              "primary-dark": "#2a7f71",
+              "background-light": "#fcfcfc",
+              "background-dark": "#1a2323",
+              "surface-light": "#ffffff",
+              "surface-dark": "#242e2e",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            boxShadow: {
+                'soft': '0 8px 30px rgba(0,0,0,0.04)',
+                'glow': '0 0 20px rgba(51, 153, 136, 0.15)'
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Hide scrollbar for clean mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        button, input, select {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 h-screen flex flex-col overflow-hidden selection:bg-primary/20 selection:text-primary">
+<!-- Top Navigation Bar -->
+<header class="shrink-0 pt-safe-top">
+<div class="px-4 py-3 flex items-center justify-between bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm z-20">
+<button class="group flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<h1 class="text-base font-bold text-gray-900 dark:text-white tracking-tight">Publicar Propiedad</h1>
+<button class="text-sm font-bold text-gray-400 hover:text-red-500 transition-colors px-2">Cancelar</button>
+</div>
+</header>
+<!-- Multi-Step Progress Bar -->
+<div class="shrink-0 px-6 pt-2 pb-6 w-full max-w-lg mx-auto">
+<div class="flex items-center justify-between relative">
+<!-- Background Line -->
+<div class="absolute left-0 top-[14px] w-full h-[2px] bg-gray-100 dark:bg-gray-800 rounded-full -z-10"></div>
+<!-- Active Progress Line (Approx 33%) -->
+<div class="absolute left-0 top-[14px] w-[30%] h-[2px] bg-primary rounded-full -z-10 shadow-[0_0_10px_rgba(51,153,136,0.5)]"></div>
+<!-- Step 1: Info (Active) -->
+<div class="flex flex-col items-center gap-1.5 cursor-pointer">
+<div class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center shadow-glow ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined" style="font-size: 16px; font-weight: 700;">check</span>
+</div>
+<span class="text-[11px] font-bold text-primary tracking-wide uppercase">Info</span>
+</div>
+<!-- Step 2: Fotos (Inactive) -->
+<div class="flex flex-col items-center gap-1.5 opacity-40">
+<div class="w-7 h-7 rounded-full bg-surface-light dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-700 text-gray-400 flex items-center justify-center ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined" style="font-size: 16px;">photo_camera</span>
+</div>
+<span class="text-[11px] font-bold text-gray-500 dark:text-gray-400 tracking-wide uppercase">Fotos</span>
+</div>
+<!-- Step 3: Ubicación (Inactive) -->
+<div class="flex flex-col items-center gap-1.5 opacity-40">
+<div class="w-7 h-7 rounded-full bg-surface-light dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-700 text-gray-400 flex items-center justify-center ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined" style="font-size: 16px;">location_on</span>
+</div>
+<span class="text-[11px] font-bold text-gray-500 dark:text-gray-400 tracking-wide uppercase">Mapa</span>
+</div>
+</div>
+</div>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto overflow-x-hidden px-4 pb-32 no-scrollbar w-full max-w-lg mx-auto">
+<div class="flex flex-col gap-6">
+<!-- Card: Information Form -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-1 shadow-soft">
+<div class="p-4 sm:p-6 space-y-6">
+<div class="flex items-center gap-3 pb-2 border-b border-gray-50 dark:border-gray-800/50">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h2 class="text-lg font-bold text-gray-900 dark:text-white">Detalles Principales</h2>
+</div>
+<!-- Title Input -->
+<label class="block group relative">
+<span class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1.5 block ml-1 uppercase tracking-wider">Título del anuncio</span>
+<input class="block w-full h-14 rounded-xl bg-gray-50 dark:bg-[#1f2929] border-transparent focus:border-primary focus:bg-white dark:focus:bg-[#1a2323] focus:ring-0 text-base text-gray-900 dark:text-white placeholder-gray-400 font-medium shadow-sm transition-all" placeholder="Ej. Apartamento moderno con vista al mar" type="text"/>
+</label>
+<!-- Type & Price Row -->
+<div class="grid grid-cols-5 gap-4">
+<!-- Property Type -->
+<label class="col-span-3 block group relative">
+<span class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1.5 block ml-1 uppercase tracking-wider">Tipo</span>
+<div class="relative">
+<select class="block w-full h-14 pl-4 pr-10 rounded-xl bg-gray-50 dark:bg-[#1f2929] border-transparent focus:border-primary focus:bg-white dark:focus:bg-[#1a2323] focus:ring-0 text-base text-gray-900 dark:text-white font-medium shadow-sm appearance-none cursor-pointer">
+<option disabled="" selected="" value="">Seleccionar...</option>
+<option value="apartment">Apartamento</option>
+<option value="house">Casa</option>
+<option value="land">Terreno</option>
+<option value="office">Oficina</option>
+</select>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
+<span class="material-symbols-outlined">keyboard_arrow_down</span>
+</div>
+</div>
+</label>
+<!-- Price -->
+<label class="col-span-2 block group relative">
+<span class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1.5 block ml-1 uppercase tracking-wider">Precio</span>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-semibold">$</span>
+<input class="block w-full h-14 pl-8 pr-4 rounded-xl bg-gray-50 dark:bg-[#1f2929] border-transparent focus:border-primary focus:bg-white dark:focus:bg-[#1a2323] focus:ring-0 text-base text-gray-900 dark:text-white placeholder-gray-400 font-medium shadow-sm text-right" placeholder="0" type="number"/>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Card: Photo Upload -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-1 shadow-soft">
+<div class="p-4 sm:p-6 space-y-5">
+<div class="flex items-center justify-between pb-2 border-b border-gray-50 dark:border-gray-800/50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">imagesmode</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-gray-900 dark:text-white leading-tight">Fotos</h2>
+<p class="text-xs text-gray-400 font-medium">Mínimo 3 fotos</p>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs font-bold">
+                            2/10
+                        </div>
+</div>
+<!-- Photo Grid -->
+<div class="grid grid-cols-3 gap-3">
+<!-- Upload Button -->
+<button class="aspect-square relative flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 hover:bg-primary/10 hover:border-primary/60 hover:scale-[1.02] active:scale-95 group transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-primary text-white shadow-lg shadow-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">add</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Subir</span>
+</button>
+<!-- Uploaded Image 1 -->
+<div class="relative aspect-square rounded-xl overflow-hidden group shadow-sm bg-gray-100">
+<img alt="Modern bright apartment interior" class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" data-alt="Modern bright apartment interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcOM25IxqPsfNfATh5tfVAwFHxKcf-k11-l-Io1DkbqaDtftVyVY0jDLquKdeOf8_jjs4c7IDzUqnbKwRSDCXcQ93U1RgLCACknf9XQZgZOx7bwG7mOQGoteFTXIGna3dO0SKImIvzq2yZsWc3BWrwUpeBwqtLwPA6n861Z7RXZlVkLGBNMLDWpSQwY86t12VIVYe7WrGYffVSw8c75MiH-oLP2BPnxY1JMCy1uhh_rJib-4wuV5KS5DzVdN6c9lXaVNOtzT69Zv8"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+<button class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 text-white backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all hover:bg-red-500">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<!-- Uploaded Image 2 -->
+<div class="relative aspect-square rounded-xl overflow-hidden group shadow-sm bg-gray-100">
+<img alt="Cozy minimalist kitchen" class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" data-alt="Cozy minimalist kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC80X391zcWQTksP3MZQQ-tQVODJO-7x3flKT2Sl3pd5_HHTIYOylarA97xYSRUQ3Zl2G9NZzx_3nzUXHb4lFHmvmz2lHylhLfc4G7w4xZtxQJHoEfmErOcDanFTr65WyjUaPoFHLRPotdfISScdKw_71B8pfH24FXtUqCsvXC2-5uog5FZ9PE3pthuKtZFAh-C1bGAtT7cIqSHBGljWp1U9gicIFMa4n4ubbgpa1PEFGfEL2HB2teE2t0ZEE9f_PuZ2bmWogP3vhU"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+<button class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 text-white backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all hover:bg-red-500">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Sticky Footer Action -->
+<footer class="fixed bottom-0 left-0 w-full z-30">
+<!-- Gradient fade for smooth scroll off -->
+<div class="h-8 w-full bg-gradient-to-b from-transparent to-background-light dark:to-background-dark pointer-events-none"></div>
+<div class="bg-surface-light dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 px-6 py-4 pb-8 shadow-[0_-5px_30px_rgba(0,0,0,0.03)] backdrop-blur-xl bg-opacity-95 dark:bg-opacity-95">
+<div class="max-w-lg mx-auto w-full flex items-center gap-4">
+<div class="hidden xs:flex flex-col">
+<span class="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Paso siguiente</span>
+<span class="text-sm font-bold text-gray-800 dark:text-gray-200">Subir fotos (3 min)</span>
+</div>
+<button class="flex-1 h-14 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-lg shadow-lg shadow-primary/25 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group">
+                    Siguiente
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

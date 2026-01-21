@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat de Propiedad</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#2d8659",
+                "primary-dark": "#236a46",
+                "background-light": "#f8f7f6",
+                "background-dark": "#17191c",
+                "surface-light": "#ffffff",
+                "surface-dark": "#23262b",
+                },
+                fontFamily: {
+                "display": ["Plus Jakarta Sans", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                boxShadow: {
+                    'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    'float': '0 8px 30px rgba(0, 0, 0, 0.12)',
+                }
+            },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #374151;
+        }
+        /* IOS safe area support */
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .pt-safe {
+            padding-top: env(safe-area-inset-top);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display h-screen flex flex-col overflow-hidden text-slate-800 dark:text-slate-100">
+<!-- Header Section -->
+<header class="bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm z-20 flex-none pt-safe border-b border-gray-100 dark:border-gray-800">
+<div class="px-4 py-3 flex items-center justify-between gap-3">
+<!-- Back Button -->
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</button>
+<!-- User Info -->
+<div class="flex flex-1 items-center gap-3 overflow-hidden">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-cover bg-center ring-2 ring-white dark:ring-gray-700" data-alt="Portrait of real estate agent Carlos Rodriguez" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCn3Oz8qPt19PVNvM2AeknTmtiTyLYsBjs0B4PMEvB-laKt11ry0UKKPFyOUnsbpEFYeeH0T21ICPJrJUEtrCPRye3XDzWkPoYc-6zkvU-qAQUz6H8VK3R6yBZ2xcThjJ5QG_p1qjs1mQhEtJ6gw141R8Sxm9fc0d1JRIx_TSv8D0BZgW01Dj1KzDv-p0XpeAzUdYqLesroX792NTemv6crnkd2pCfT2DoC6U22PniCIrUpZs-n7jjPO7djJ9ddiZsUoT0RtQun1aw");'>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-gray-800 rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="text-sm font-bold text-slate-900 dark:text-white leading-tight truncate">Carlos Rodriguez</h2>
+<span class="text-xs text-green-600 dark:text-green-400 font-medium">En línea</span>
+</div>
+</div>
+<!-- Property Thumbnail Context -->
+<div class="shrink-0 flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+<div class="w-10 h-10 rounded-lg bg-cover bg-center border border-gray-200 dark:border-gray-700 shadow-sm" data-alt="Small thumbnail of the modern apartment building facade" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHT93OfzaHzmCf4DLv7vtORwSf-LiydoPxsmnaMUTkNxIY27v-8LoUnPgtwVp_aA1KwAz85YG1ZH0pKViuVS5Pb4YoKZxfI_d58sIoK1bOKyxrjsSLvt9hwEZ6-Yhgpd7uyZR_Bwnv7we2ib8qCT6mhgmyNz9dli1BefNbCrOmom4hAIDa-436pL_Y_zpAAond6pzAoUUPZReQFLfei4qOLEo6ubjsWK8w4umPGyiLgdif3bMUZYzDf9eON_nCoZVeDMVAPgCt6pc");'>
+</div>
+</div>
+</div>
+</header>
+<!-- Context Bar (Sticky/Floating) -->
+<div class="z-10 bg-surface-light dark:bg-surface-dark shadow-soft border-b border-gray-100 dark:border-gray-800">
+<div class="px-4 py-3 flex items-center justify-between gap-3">
+<div class="flex-1 min-w-0 flex flex-col">
+<div class="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mb-0.5">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span class="truncate">Palermo, Buenos Aires</span>
+</div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white truncate">Dept. 2 Ambientes, Luminoso</p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<a class="hidden sm:inline-block text-xs font-semibold text-primary dark:text-green-400 hover:underline px-2" href="#">Ver Propiedad</a>
+<button class="flex items-center gap-1.5 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 text-primary dark:text-green-400 px-3 py-2 rounded-lg transition-colors group">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">calendar_month</span>
+<span class="text-xs font-bold">Agendar Visita</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Chat Area -->
+<main class="flex-1 overflow-y-auto p-4 bg-background-light dark:bg-background-dark space-y-6 scroll-smooth">
+<!-- Date Separator -->
+<div class="flex justify-center py-2">
+<span class="bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Hoy</span>
+</div>
+<!-- Receiver Message (Carlos) -->
+<div class="flex items-end gap-2 group">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 mb-1" data-alt="Small avatar of Carlos" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2NSIM3hkB3fidm_K1esBJnMkAXFHPPbDVfYxc7k-RLyAaLOL8pz8rwuQ3770RGDMHxSjJGx7GWXnQcVEqzEOBz5J1qw3tskb4ksO4dSUT34pGK1zIDtS4-EUHb0W1ksF-fL5d4x1VtwYeE-HPS_C-Yuv1LsRqW7J1Dda_btLuT-FZVLZlIgdprEtND09w6j0yQi0OiDoV3C7OWCEpIy0lAuJc0kica8XalVDeL9b9_QJZH9cpU5DRGDm_S2ZUDiKHhHMMqTzFbEc");'>
+</div>
+<div class="flex flex-col items-start gap-1 max-w-[75%]">
+<span class="text-[11px] text-gray-500 ml-1">Carlos, 09:41 AM</span>
+<div class="px-4 py-3 bg-white dark:bg-surface-dark rounded-2xl rounded-bl-none shadow-sm text-slate-800 dark:text-slate-100 text-[15px] leading-relaxed border border-gray-100 dark:border-gray-700">
+<p>Hola, ¿sigue disponible el departamento para visitar este sábado?</p>
+</div>
+</div>
+</div>
+<!-- Sender Message (Me) -->
+<div class="flex items-end gap-2 justify-end group">
+<div class="flex flex-col items-end gap-1 max-w-[75%]">
+<div class="px-4 py-3 bg-primary text-white rounded-2xl rounded-br-none shadow-md text-[15px] leading-relaxed">
+<p>¡Hola Carlos! Sí, todavía lo tengo disponible.</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[11px] text-gray-400 dark:text-gray-500">09:42 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary dark:text-primary">done_all</span>
+</div>
+</div>
+</div>
+<!-- Sender Message (Me) -->
+<div class="flex items-end gap-2 justify-end group">
+<div class="flex flex-col items-end gap-1 max-w-[75%]">
+<div class="px-4 py-3 bg-primary text-white rounded-2xl rounded-br-none shadow-md text-[15px] leading-relaxed">
+<p>¿Te queda bien a las 10:00 AM? También tengo un video del interior si quieres verlo antes.</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[11px] text-gray-400 dark:text-gray-500">09:43 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary dark:text-primary">done_all</span>
+</div>
+</div>
+</div>
+<!-- Receiver Message with Attachment (Simulated) -->
+<div class="flex items-end gap-2 group">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 mb-1" data-alt="Small avatar of Carlos" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUP0v_k7cNupxW262s_dXn29A4TwrhbgldbmL22z-Ice_9N3esPGyG7prZ_VIeU33vvaWZ8MDr1oiLo769Tvt3AB2-GlvH-bFdRHvxj76Huik-lkpc_gbzPKda61XEMh6m_B5T99PPmXf4Ds8GpF_KrH5CfGVjZnKXstoTL_GMZnmxoXlRNfP_EL8NwibjpUXVdanvuv3DVD8JEVhdarH8cPeECReuC3LlEfaowgyqQ-acyXRbpe0mO-BbUc67nxF9jut_jPG5r5U");'>
+</div>
+<div class="flex flex-col items-start gap-1 max-w-[75%]">
+<span class="text-[11px] text-gray-500 ml-1">Carlos, 09:45 AM</span>
+<div class="p-1 bg-white dark:bg-surface-dark rounded-2xl rounded-bl-none shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-video w-64 mb-1" data-alt="Map view showing location of property" data-location="Palermo Soho" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCoKGKqIiOrh-fbEtwJaStEQyK9T5Cvj88uxGygGoba1TVEKPseAmsDzqj537TLS-MQ7l3LqQm_Q9sWOwK-6yDFjz_eSGk16epDanigTIyArByEfbc1HT7rpUproaZRD1yw-YNMrYta97NNP_o4TqvdPlX6vAAd_2w0re2hsmFTLURRXB-V24faH3gDhNN3VLGWgUypZM2zTYwKnfQ1jcpPgLKZMe-ozayd3KE6wZ8Fli6x9GXdTsmmI--9h8UtFay-0BvZ_-ayRM"); background-size: cover; background-position: center;'>
+<div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-lg">map</span>
+</div>
+</div>
+<div class="px-3 pb-2 pt-1">
+<p class="text-sm font-medium text-slate-800 dark:text-slate-100">Ubicación exacta</p>
+<p class="text-xs text-gray-500">Compartida contigo</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer for bottom input area -->
+<div class="h-20"></div>
+</main>
+<!-- Bottom Input Area -->
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 pb-safe z-20 shadow-[0_-4px_20px_-2px_rgba(0,0,0,0.05)]">
+<div class="px-4 py-3 flex items-end gap-3">
+<!-- Attachment Button -->
+<button class="mb-1 p-2 rounded-full text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shrink-0">
+<span class="material-symbols-outlined text-[26px]">add_circle</span>
+</button>
+<!-- Input Field -->
+<div class="flex-1 bg-gray-100 dark:bg-gray-800 rounded-[20px] flex items-center min-h-[44px] px-4 py-2 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<textarea class="w-full bg-transparent border-0 p-0 text-slate-800 dark:text-slate-100 placeholder:text-gray-400 focus:ring-0 resize-none max-h-32 text-[15px] leading-normal" placeholder="Escribe un mensaje..." rows="1"></textarea>
+<button class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-symbols-outlined text-[20px]">sentiment_satisfied</span>
+</button>
+</div>
+<!-- Send Button -->
+<button class="mb-1 w-10 h-10 rounded-full bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/30 flex items-center justify-center transition-transform active:scale-95 shrink-0">
+<span class="material-symbols-outlined text-[20px] ml-0.5">send</span>
+</button>
+</div>
+</footer>
+</body></html>

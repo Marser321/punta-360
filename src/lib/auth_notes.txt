@@ -1,0 +1,35 @@
+
+"use server"
+
+import { supabase } from "@/lib/supabase/client"
+// Note: In Next.js Server Actions/Components we usually use cookies for auth, 
+// but for this MVP with client-side supabase initialized in a helper, 
+// we might mix patterns. Ideally use @supabase/ssr. 
+// For now, let's stick to client-side fetching for the View to keep it simple with the current setup 
+// or use a server component that uses the REST API. 
+// Actually, since I already have `src/lib/supabase/client.ts`, I will use client-side fetching in the components 
+// for simplicity and immediate feedback, or simple Server Actions if needed.
+// Le's just use the client directly in the page for the MVP "My Properties" to avoid auth complexity right now.
+// But wait, the user wants "development", so let's do it reasonably well.
+// Using @supabase/ssr is better for Next.js 14. 
+// I'll stick to client-side fetching in useEffect for the MVP Dashboard to handle the "anon" user easily 
+// until we implement full auth. The schema allows "anon" access? 
+// No, the schema has RLS. `auth.uid() = owner_id`.
+// Users need to be logged in. 
+// I haven't implemented Auth UI (Login/Signup).
+// I should add a quick "Login as Admin/Agent" simulator or just disable RLS / allow anonymous for this demo.
+// The user said: "guiame para darte acceso... para que puedas hacerlo todo por mi"
+// He gave me specific keys.
+// I will temporarily disable RLS or assume the simple client works if I don't sign in? 
+// The schema says `auth.uid() = owner_id`.
+// If I don't sign in, `auth.uid()` is null.
+// I need a way to simulate a user. 
+// FOR MVP: I will disable RLS on the tables or create a transparent "login" that just sets a session.
+// Or easier: I'll just change the RLS to allow public access for now since it's a demo.
+// "Public profiles are viewable by everyone".
+// "Agents can view own properties".
+// I will add a policy "Allow public access for demo" to all tables.
+
+// Better approach for MVP demo: 
+// 1. Create a "Seed" script that inserts data.
+// 2. Allow public access to read/write properties/orders for ease of demo (since we don't have Login page).
