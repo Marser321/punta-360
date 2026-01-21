@@ -52,9 +52,9 @@ const routes = [
         isNew: true,
     },
     {
-        label: "Creative Studio",
+        label: "Marketing IA",
         icon: Sparkles,
-        href: "/creative-studio",
+        href: "/dashboard/marketing-intelligence",
         color: "text-amber-400",
         isNew: true,
     },
