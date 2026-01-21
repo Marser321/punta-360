@@ -4,9 +4,8 @@ import { useState, useCallback } from "react"
 import { useDropzone } from "react-dropzone"
 import { supabase } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
 import { toast } from "sonner"
-import { Upload, X, Image as ImageIcon, Loader2, GripVertical } from "lucide-react"
+import { Upload, X, Loader2, GripVertical } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface UploadedImage {
