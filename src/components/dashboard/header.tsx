@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { MobileSidebar } from "@/components/dashboard/sidebar"
 import { Button } from "@/components/ui/button"
@@ -71,9 +72,11 @@ export function DashboardHeader() {
 
             <div className="flex items-center gap-x-4">
                 <ThemeToggle />
-                <Button size="sm" variant="outline" className="glass hover:bg-white/50 dark:hover:bg-slate-800/50">
-                    Mis Recibos
-                </Button>
+                <Link href="/settings">
+                    <Button size="sm" variant="outline" className="glass hover:bg-white/50 dark:hover:bg-slate-800/50">
+                        Mis Recibos
+                    </Button>
+                </Link>
                 <Separator orientation="vertical" className="h-6" />
 
                 <DropdownMenu>
@@ -101,11 +104,11 @@ export function DashboardHeader() {
                             </div>
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => router.push('/profile')}>
                             <User className="mr-2 h-4 w-4" />
                             Mi Perfil
                         </DropdownMenuItem>
-                        <DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => router.push('/settings')}>
                             <Settings className="mr-2 h-4 w-4" />
                             Configuración
                         </DropdownMenuItem>

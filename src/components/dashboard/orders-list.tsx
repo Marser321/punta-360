@@ -217,12 +217,26 @@ export function OrdersList() {
                                     {/* Action */}
                                     <div className="flex-shrink-0">
                                         {order.status === 'completed' ? (
-                                            <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
+                                            <Button
+                                                size="sm"
+                                                className="bg-green-600 hover:bg-green-700 text-white"
+                                                onClick={async () => {
+                                                    const { toast } = await import("sonner")
+                                                    toast.success(`Descargando material de ${order.property?.title}`)
+                                                }}
+                                            >
                                                 <Download className="h-4 w-4 mr-1" />
                                                 Descargar
                                             </Button>
                                         ) : (
-                                            <Button size="sm" variant="outline">
+                                            <Button
+                                                size="sm"
+                                                variant="outline"
+                                                onClick={async () => {
+                                                    const { toast } = await import("sonner")
+                                                    toast.info(`Viendo detalles del pedido #${order.id}`)
+                                                }}
+                                            >
                                                 <Eye className="h-4 w-4 mr-1" />
                                                 Detalles
                                             </Button>
