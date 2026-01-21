@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
     ChevronLeft,
     ChevronRight,
@@ -40,6 +40,16 @@ export function VirtualStagingSlider() {
     const [activeStyle, setActiveStyle] = useState(STYLES[1]) // Default to Modern
     const [sliderPosition, setSliderPosition] = useState(50)
     const [isDragging, setIsDragging] = useState(false)
+    const [isApplyingStyle, setIsApplyingStyle] = useState(false)
+
+    const handleStyleChange = (style: typeof STYLES[0]) => {
+        if (style.id === activeStyle.id) return
+        setIsApplyingStyle(true)
+        setTimeout(() => {
+            setActiveStyle(style)
+            setIsApplyingStyle(false)
+        }, 1200)
+    }
 
     const handleMove = (e: React.MouseEvent | React.TouchEvent) => {
         if (!isDragging) return
@@ -58,14 +68,17 @@ export function VirtualStagingSlider() {
                 {STYLES.map((style) => (
                     <Button
                         key={style.id}
-                        onClick={() => setActiveStyle(style)}
+                        onClick={() => handleStyleChange(style)}
+                        disabled={isApplyingStyle}
                         variant={activeStyle.id === style.id ? "default" : "outline"}
-                        className={`rounded-full text-xs h-8 ${activeStyle.id === style.id
-                                ? "bg-purple-600 hover:bg-purple-700"
-                                : "border-white/10 text-white/60 hover:text-white"
+                        className={`rounded-full text-xs h-8 transition-all duration-300 ${activeStyle.id === style.id
+                            ? "bg-purple-600 hover:bg-purple-700 shadow-[0_0_15px_rgba(147,51,234,0.5)]"
+                            : "border-white/10 text-white/60 hover:text-white"
                             }`}
                     >
-                        {style.id !== 'original' && <Sparkles className="w-3 h-3 mr-2" />}
+                        {style.id !== 'original' && (
+                            <Sparkles className={`w-3 h-3 mr-2 ${isApplyingStyle && activeStyle.id !== style.id ? "animate-spin" : ""}`} />
+                        )}
                         {style.name}
                     </Button>
                 ))}
@@ -134,6 +147,36 @@ export function VirtualStagingSlider() {
                         <span className="text-[10px] font-medium text-white/80 uppercase tracking-widest">Desliza para comparar</span>
                     </div>
                 </div>
+
+                {/* AI Processing Overlay */}
+                <AnimatePresence>
+                    {isApplyingStyle && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-purple-900/40 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-4"
+                        >
+                            <div className="relative">
+                                <Sparkles className="w-12 h-12 text-white animate-pulse" />
+                                <motion.div
+                                    className="absolute inset-0 border-2 border-white rounded-full"
+                                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                                    transition={{ duration: 1, repeat: Infinity }}
+                                />
+                            </div>
+                            <span className="text-white font-bold tracking-[0.3em] text-[10px] uppercase">Redibujando Espacios...</span>
+                            <div className="w-32 h-1 bg-white/20 rounded-full overflow-hidden">
+                                <motion.div
+                                    className="h-full bg-white"
+                                    initial={{ width: 0 }}
+                                    animate={{ width: "100%" }}
+                                    transition={{ duration: 1.2 }}
+                                />
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
 
             {/* Description Card */}

@@ -307,9 +307,11 @@ export default function OwnersLandingPage() {
                                 Agendar Tasación
                             </Button>
                         </Link>
-                        <Button size="lg" variant="outline" className="border-gray-200 text-black hover:bg-gray-50 text-lg px-10 py-7 rounded-full">
-                            Ver Casos de Éxito
-                        </Button>
+                        <Link href="/login">
+                            <Button size="lg" variant="outline" className="border-gray-200 text-black hover:bg-gray-50 text-lg px-10 py-7 rounded-full">
+                                Acceso Propietarios
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>

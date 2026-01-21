@@ -149,50 +149,53 @@ export default function AISolutionsPage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Creative Studio */}
-                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-amber-500/50 transition-all group flex flex-col h-full">
-                            <div className="h-16 w-16 rounded-2xl bg-amber-500 flex items-center justify-center mb-8 shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform">
-                                <Zap className="w-8 h-8 text-black" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-4">AI Creative Studio</h3>
-                            <p className="text-white/50 mb-8 flex-grow">
-                                Generación automática de contenido para redes sociales. Sube tu logo y deja que la IA cree Reels y Posts cinematográficos de tus propiedades.
-                            </p>
-                            <Link href="/dashboard/creative-studio">
-                                <Button className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold rounded-xl">
-                                    Ir al Laboratorio AI
-                                </Button>
-                            </Link>
-                        </div>
-
-                        {/* Staging */}
-                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all group flex flex-col h-full">
-                            <div className="h-16 w-16 rounded-2xl bg-purple-500 flex items-center justify-center mb-8 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
-                                <Layers className="w-8 h-8 text-white" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-4">Virtual Staging IA</h3>
-                            <p className="text-white/50 mb-8 flex-grow">
-                                Visualización interactiva de espacios. Transforma ambientes vacíos en lujosos sets minimalistas o clásicos instantáneamente.
-                            </p>
-                            <Link href="/marketplace">
-                                <Button variant="outline" className="w-full border-purple-500/30 text-purple-400 font-bold rounded-xl hover:bg-purple-500/10">
-                                    Ver Demo en Marketplace
-                                </Button>
-                            </Link>
-                        </div>
-
-                        {/* Intelligence */}
-                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all group flex flex-col h-full">
+                        {/* Intelligence First */}
+                        <div className="p-8 rounded-[2rem] bg-white/5 border-2 border-cyan-500/30 hover:border-cyan-400 transition-all group flex flex-col h-full shadow-[0_0_50px_-12px_rgba(34,211,238,0.2)]">
                             <div className="h-16 w-16 rounded-2xl bg-cyan-500 flex items-center justify-center mb-8 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
                                 <BarChart3 className="w-8 h-8 text-white" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-4">Punta Intelligence</h3>
                             <p className="text-white/50 mb-8 flex-grow">
-                                Concierge de inversión. ROI, Yield y proyecciones de plusvalía calculadas por redes neuronales para inversores de élite.
+                                Concierge de inversión global. Analiza ROI, Yield y proyecciones de plusvalía calculadas por redes neuronales alimentadas con 10 años de historial de mercado en Punta del Este.
                             </p>
                             <Link href="/marketplace">
-                                <Button variant="outline" className="w-full border-cyan-500/30 text-cyan-400 font-bold rounded-xl hover:bg-cyan-500/10">
-                                    Explorar Analíticas
+                                <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-black rounded-xl uppercase tracking-widest">
+                                    Consultar Reporte de Mercado
+                                </Button>
+                            </Link>
+                        </div>
+
+                        {/* Staging Second */}
+                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all group flex flex-col h-full">
+                            <div className="h-16 w-16 rounded-2xl bg-purple-500 flex items-center justify-center mb-8 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                                <Layers className="w-8 h-8 text-white" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4">Visualización de Potencial</h3>
+                            <p className="text-white/50 mb-8 flex-grow">
+                                Staging Virtual IA para ver el futuro de tu inversión. Transforma espacios para maximizar el valor de reventa o renta temporaria.
+                            </p>
+                            <Link href="/marketplace">
+                                <Button variant="outline" className="w-full border-purple-500/30 text-purple-400 font-bold rounded-xl hover:bg-purple-500/10">
+                                    Explorar en Marketplace
+                                </Button>
+                            </Link>
+                        </div>
+
+                        {/* Creative Studio Third (Secondary) */}
+                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-amber-500/50 transition-all group flex flex-col h-full opacity-60 hover:opacity-100">
+                            <div className="h-16 w-16 rounded-2xl bg-amber-500/20 flex items-center justify-center mb-8 border border-amber-500/30 group-hover:scale-110 transition-transform">
+                                <Zap className="w-8 h-8 text-amber-500" />
+                            </div>
+                            <div className="flex items-center justify-between mb-4">
+                                <h3 className="text-2xl font-bold text-white">Creative Lab</h3>
+                                <Badge variant="outline" className="text-[10px] text-amber-500 border-amber-500/30">EXPERIMENTAL</Badge>
+                            </div>
+                            <p className="text-white/50 mb-8 flex-grow">
+                                Prototipado rápido de marketing. Herramientas auxiliares para la generación de activos visuales para redes sociales.
+                            </p>
+                            <Link href="/dashboard/creative-studio">
+                                <Button variant="ghost" className="w-full text-white/40 hover:text-white hover:bg-white/5 font-bold rounded-xl">
+                                    Probar Herramientas Visuales
                                 </Button>
                             </Link>
                         </div>

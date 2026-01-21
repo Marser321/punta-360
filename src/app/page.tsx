@@ -12,7 +12,7 @@ export default function GatewayPage() {
       title: "Propietarios",
       description: "Gestiona tu propiedad, revisa el rendimiento y consulta tus reservas en tiempo real.",
       icon: Key,
-      link: "/marketplace", // Redirect to Marketplace so they see the properties and AI tools
+      link: "/owners", // Restore redirect to Owners landing page
       image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
       color: "from-amber-400 to-orange-500",
       glow: "group-hover:shadow-[0_0_50px_-12px_rgba(251,191,36,0.5)]"

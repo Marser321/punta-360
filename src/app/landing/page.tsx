@@ -199,13 +199,13 @@ export default function LandingPage() {
                                 Próxima Generación
                             </Badge>
                             <h2 className="text-4xl md:text-6xl font-black text-white leading-none uppercase tracking-tighter">
-                                Inmuebles <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-600">
-                                    Impulsados por IA
+                                Inteligencia <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-amber-600">
+                                    de Inversión de Élite
                                 </span>
                             </h2>
                             <p className="text-xl text-white/50 leading-relaxed font-light">
-                                Punta360 no es solo un portal. Es un ecosistema de alta tecnología que maximiza el valor de cada propiedad mediante algoritmos avanzados.
+                                Punta360 utiliza redes neuronales para analizar el ROI real, historial de rentas y proyecciones de valor para inversores que exigen precisión ante todo.
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

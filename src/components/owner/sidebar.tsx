@@ -43,7 +43,7 @@ const routes = [
         badge: 2
     },
     {
-        label: "Laboratorio AI",
+        label: "Inteligencia",
         icon: Sparkles,
         href: "/creative-studio",
         color: "text-amber-400",

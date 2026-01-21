@@ -156,8 +156,8 @@ export default function CreativeStudioPage() {
                                         key={prop.id}
                                         onClick={() => setSelectedProperty(prop)}
                                         className={`w-full p-2 rounded-lg flex items-center gap-3 transition-all text-left ${selectedProperty.id === prop.id
-                                                ? "bg-amber-500/20 border border-amber-500/30"
-                                                : "hover:bg-white/5 border border-transparent"
+                                            ? "bg-amber-500/20 border border-amber-500/30"
+                                            : "hover:bg-white/5 border border-transparent"
                                             }`}
                                     >
                                         <img src={prop.image} className="w-12 h-12 rounded bg-stone-900 object-cover" />
@@ -191,11 +191,22 @@ export default function CreativeStudioPage() {
                     </Tabs>
 
                     <div className="flex gap-2">
-                        <Button variant="outline" size="sm" className="glass bg-white/5 text-xs gap-2">
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="glass bg-white/5 text-xs gap-2"
+                            onClick={() => toast.info("Link de previsualización copiado al portapapeles")}
+                        >
                             <Share2 className="w-4 h-4" />
                             Share
                         </Button>
-                        <Button size="sm" className="bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs gap-2">
+                        <Button
+                            size="sm"
+                            className="bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs gap-2"
+                            onClick={() => toast.success("Iniciando descarga del activo generado", {
+                                description: "Tu video se guardará en descargas en formato MP4."
+                            })}
+                        >
                             <Download className="w-4 h-4" />
                             Download
                         </Button>
@@ -212,10 +223,14 @@ export default function CreativeStudioPage() {
                         <div className="relative w-full h-full">
                             <AnimatePresence mode="wait">
                                 <motion.img
-                                    key={selectedProperty.id}
+                                    key={`${selectedProperty.id}-${activeFormat}`}
                                     initial={{ opacity: 0, scale: 1.1 }}
                                     animate={{ opacity: 1, scale: isPlaying ? 1.05 : 1 }}
-                                    transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{
+                                        opacity: { duration: 0.4 },
+                                        scale: { duration: 5, repeat: Infinity, repeatType: "reverse" }
+                                    }}
                                     src={selectedProperty.image}
                                     className="w-full h-full object-cover grayscale-[0.2]"
                                 />
