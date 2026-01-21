@@ -14,6 +14,11 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/ui/logo"
+import { createClient } from "@/lib/supabase/browser"
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
 
 const routes = [
     {
@@ -37,10 +42,32 @@ const routes = [
         href: "/owner/messages",
         badge: 2
     },
+    {
+        label: "Laboratorio AI",
+        icon: Sparkles,
+        href: "/creative-studio",
+        color: "text-amber-400",
+    },
 ]
 
 export function OwnerSidebar() {
     const pathname = usePathname()
+    const router = useRouter()
+    const supabase = createClient()
+
+    const handleLogout = async () => {
+        try {
+            const { error } = await supabase.auth.signOut()
+            if (error) throw error
+
+            toast.success("Sesión cerrada correctamente")
+            router.push("/")
+            router.refresh()
+        } catch (error) {
+            console.error("Error logging out:", error)
+            toast.error("Error al cerrar sesión")
+        }
+    }
 
     return (
         <div className="flex flex-col h-full py-6">
@@ -89,12 +116,30 @@ export function OwnerSidebar() {
                 </Link>
                 <Button
                     variant="ghost"
-                    className="w-full justify-start gap-3 px-4 py-3 text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                    onClick={handleLogout}
+                    className="w-full justify-start gap-3 px-4 py-3 text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-colors"
                 >
                     <LogOut className="w-5 h-5" />
                     Cerrar Sesión
                 </Button>
             </div>
         </div>
+    )
+}
+
+export function MobileOwnerSidebar() {
+    return (
+        <Sheet>
+            <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden text-white hover:bg-white/10">
+                    <Menu className="h-6 w-6" />
+                </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="p-0 bg-stone-950 border-amber-500/20 w-72">
+                <div className="h-full bg-gradient-to-b from-amber-950/20 to-black/40 backdrop-blur-xl">
+                    <OwnerSidebar />
+                </div>
+            </SheetContent>
+        </Sheet>
     )
 }

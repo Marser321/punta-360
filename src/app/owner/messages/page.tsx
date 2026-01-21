@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Search, Send, Paperclip, MoreVertical, Phone, Video } from "lucide-react"
+import { toast } from "sonner"
 
 const conversations = [
     {
@@ -93,8 +94,8 @@ export default function MessagesPage() {
                                 key={chat.id}
                                 onClick={() => setActiveChat(chat)}
                                 className={`flex items-start gap-3 p-3 text-left rounded-xl transition-all ${activeChat.id === chat.id
-                                        ? "bg-primary/10"
-                                        : "hover:bg-secondary/50"
+                                    ? "bg-primary/10"
+                                    : "hover:bg-secondary/50"
                                     }`}
                             >
                                 <div className="relative">
@@ -144,10 +145,20 @@ export default function MessagesPage() {
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Button variant="ghost" size="icon" className="hover:bg-secondary/50 rounded-full">
+                        <Button
+                            onClick={() => toast.info(`Llamando a ${activeChat.name}...`)}
+                            variant="ghost"
+                            size="icon"
+                            className="hover:bg-secondary/50 rounded-full"
+                        >
                             <Phone className="h-4 w-4" />
                         </Button>
-                        <Button variant="ghost" size="icon" className="hover:bg-secondary/50 rounded-full">
+                        <Button
+                            onClick={() => toast.info(`Iniciando video con ${activeChat.name}...`)}
+                            variant="ghost"
+                            size="icon"
+                            className="hover:bg-secondary/50 rounded-full"
+                        >
                             <Video className="h-4 w-4" />
                         </Button>
                         <Button variant="ghost" size="icon" className="hover:bg-secondary/50 rounded-full">
@@ -166,8 +177,8 @@ export default function MessagesPage() {
                             >
                                 <div
                                     className={`max-w-[70%] p-3 rounded-2xl shadow-sm text-sm ${msg.sender === "user"
-                                            ? "bg-primary text-primary-foreground rounded-tr-none"
-                                            : "bg-secondary text-secondary-foreground rounded-tl-none"
+                                        ? "bg-primary text-primary-foreground rounded-tr-none"
+                                        : "bg-secondary text-secondary-foreground rounded-tl-none"
                                         }`}
                                 >
                                     <p>{msg.content}</p>
@@ -192,7 +203,15 @@ export default function MessagesPage() {
                             placeholder="Escribe un mensaje..."
                             className="bg-transparent border-none focus-visible:ring-0 shadow-none px-2"
                         />
-                        <Button size="icon" className="rounded-full shadow-lg shrink-0">
+                        <Button
+                            onClick={() => {
+                                if (!messageInput.trim()) return
+                                toast.success("Mensaje enviado (Simulado)")
+                                setMessageInput("")
+                            }}
+                            size="icon"
+                            className="rounded-full shadow-lg shrink-0"
+                        >
                             <Send className="h-4 w-4" />
                         </Button>
                     </div>

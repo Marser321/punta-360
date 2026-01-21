@@ -3,12 +3,15 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Home, ShoppingBag, Menu, Users, Store, Bot } from "lucide-react"
+import { LayoutDashboard, Home, ShoppingBag, Menu, Users, Store, Bot, Sparkles } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/ui/logo"
+import { createClient } from "@/lib/supabase/browser"
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 
 const routes = [
     {
@@ -42,10 +45,17 @@ const routes = [
         color: "text-pink-700",
     },
     {
-        label: "Soluciones IA",
+        label: "AI Solutions",
         icon: Bot,
         href: "/ai-solutions",
         color: "text-purple-500",
+        isNew: true,
+    },
+    {
+        label: "Creative Studio",
+        icon: Sparkles,
+        href: "/creative-studio",
+        color: "text-amber-400",
         isNew: true,
     },
 ]
@@ -54,6 +64,22 @@ const routes = [
 
 export function DashboardSidebar() {
     const pathname = usePathname()
+    const router = useRouter()
+    const supabase = createClient()
+
+    const handleLogout = async () => {
+        try {
+            const { error } = await supabase.auth.signOut()
+            if (error) throw error
+
+            toast.success("Sesión cerrada")
+            router.push("/")
+            router.refresh()
+        } catch (error) {
+            console.error("Logout error:", error)
+            toast.error("Error al salir")
+        }
+    }
 
     return (
         <div className="space-y-4 py-4 flex flex-col h-full bg-transparent text-white">
@@ -97,11 +123,7 @@ export function DashboardSidebar() {
                     </a>
 
                     <button
-                        onClick={async () => {
-                            const { supabase } = await import("@/lib/supabase/client")
-                            await supabase.auth.signOut()
-                            window.location.href = "/"
-                        }}
+                        onClick={handleLogout}
                         className="w-full bg-white/5 hover:bg-white/10 text-white text-xs font-medium py-2 rounded-lg transition-colors border border-white/5"
                     >
                         Cerrar Sesión

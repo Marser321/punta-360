@@ -18,9 +18,11 @@ import {
     Plane,
     Star,
     CheckCircle2,
-    Phone
+    Phone,
+    TrendingUp
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { ServiceCards } from "@/components/landing/service-cards"
 import { StatsSection } from "@/components/landing/stats-section"
 import { TestimonialsSection } from "@/components/landing/testimonials-section"
@@ -179,6 +181,92 @@ export default function LandingPage() {
 
             {/* === STATS SECTION === */}
             <StatsSection />
+
+            {/* === AI INNOVATION SECTION === */}
+            <section className="py-24 relative bg-slate-950 overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] -mr-64 -mt-32" />
+                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[100px] -ml-32 -mb-32" />
+
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="flex flex-col lg:flex-row items-center gap-16">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 space-y-8"
+                        >
+                            <Badge className="bg-amber-500/20 text-amber-500 border-amber-500/30 px-4 py-1.5 text-xs font-bold tracking-widest uppercase">
+                                Próxima Generación
+                            </Badge>
+                            <h2 className="text-4xl md:text-6xl font-black text-white leading-none uppercase tracking-tighter">
+                                Inmuebles <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-600">
+                                    Impulsados por IA
+                                </span>
+                            </h2>
+                            <p className="text-xl text-white/50 leading-relaxed font-light">
+                                Punta360 no es solo un portal. Es un ecosistema de alta tecnología que maximiza el valor de cada propiedad mediante algoritmos avanzados.
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {[
+                                    {
+                                        title: "Virtual Staging IA",
+                                        desc: "Visualización instantánea de espacios con múltiples estilos arquitectónicos.",
+                                        icon: Sparkles,
+                                        color: "text-purple-400"
+                                    },
+                                    {
+                                        title: "Punta Intelligence",
+                                        desc: "Análisis financiero proactivo con proyección de ROI y Yield en tiempo real.",
+                                        icon: TrendingUp,
+                                        color: "text-cyan-400"
+                                    },
+                                    {
+                                        title: "Creative Studio",
+                                        desc: "Generación automática de contenido para redes sociales (Reels/TikTok).",
+                                        icon: Video,
+                                        color: "text-amber-400"
+                                    }
+                                ].map((item, i) => (
+                                    <div key={i} className="flex gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors group">
+                                        <div className={`mt-1 h-8 w-8 rounded-lg bg-black/40 flex items-center justify-center ${item.color}`}>
+                                            <item.icon className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-bold group-hover:text-amber-400 transition-colors">{item.title}</h4>
+                                            <p className="text-white/40 text-xs mt-1 leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        {/* Interactive Visual Element */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
+                            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 relative group"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-cyan-500 rounded-[3rem] blur-3xl opacity-20 group-hover:opacity-30 transition-opacity" />
+                            <div className="relative glass-card border-white/10 p-4 rounded-[3rem] bg-black/40 backdrop-blur-3xl overflow-hidden aspect-square flex items-center justify-center">
+                                <img
+                                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200"
+                                    alt="IA Visualization"
+                                    className="w-full h-full object-cover rounded-[2.5rem] grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
+                                />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
+                                    <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center animate-pulse">
+                                        <Sparkles className="w-10 h-10 text-amber-500" />
+                                    </div>
+                                    <p className="mt-4 text-white font-black tracking-widest text-sm uppercase">Analizando Potencial...</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
 
             {/* === TESTIMONIALS === */}
             <TestimonialsSection />

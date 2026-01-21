@@ -17,11 +17,15 @@ import {
     Calendar,
     TrendingUp,
     ExternalLink,
-    X
+    X,
+    Sparkles
 } from "lucide-react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Viewer360 } from "@/components/property/viewer-360"
+import { toast } from "sonner"
+import { InvestmentConcierge } from "@/components/property/investment-concierge"
+import { VirtualStagingSlider } from "@/components/property/virtual-staging-slider"
 
 // Mock property data
 const myProperty = {
@@ -52,6 +56,20 @@ export default function OwnerPropertyPage() {
     const [mainImage, setMainImage] = useState(myProperty.images[0])
     const [isGalleryOpen, setIsGalleryOpen] = useState(false)
     const [is360Open, setIs360Open] = useState(false)
+
+    const handleShare = () => {
+        const url = typeof window !== 'undefined' ? `${window.location.origin}/p/${myProperty.id}` : ''
+        navigator.clipboard.writeText(url)
+        toast.success("Enlace copiado al portapapeles", {
+            description: "Ya puedes compartirlo con posibles interesados."
+        })
+    }
+
+    const handleEditRequest = () => {
+        toast.info("Solicitud de Edición", {
+            description: "Para cambios en la estructura o precio, contacta a tu agente asignado o solicita un servicio multimedia."
+        })
+    }
 
     // Demo 360 scenes
     const demo360Scenes = [{
@@ -87,7 +105,10 @@ export default function OwnerPropertyPage() {
                             Ver Pública
                         </Button>
                     </Link>
-                    <Button className="bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold">
+                    <Button
+                        onClick={handleEditRequest}
+                        className="bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold"
+                    >
                         <Edit className="w-4 h-4 mr-2" />
                         Editar
                     </Button>
@@ -269,7 +290,11 @@ export default function OwnerPropertyPage() {
                                         Mejorar con Marketing
                                     </Button>
                                 </Link>
-                                <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10">
+                                <Button
+                                    onClick={handleShare}
+                                    variant="outline"
+                                    className="w-full border-white/20 text-white hover:bg-white/10"
+                                >
                                     <Share2 className="w-4 h-4 mr-2" />
                                     Compartir Enlace
                                 </Button>
@@ -277,6 +302,65 @@ export default function OwnerPropertyPage() {
                         </CardContent>
                     </Card>
                 </motion.div>
+            </div>
+
+            {/* AI Innovation Sections for Owners */}
+            <div className="grid lg:grid-cols-3 gap-6 pt-4 border-t border-white/5">
+                <div className="lg:col-span-2 space-y-12">
+                    {/* Virtual Staging */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-3xl font-black text-white uppercase tracking-tighter">
+                                <span className="text-amber-500">AI</span> Virtual Staging
+                            </h2>
+                            <Badge className="bg-amber-500/10 text-amber-500 border-amber-500/20 px-3">Exclusivo Premium</Badge>
+                        </div>
+                        <VirtualStagingSlider />
+                    </motion.div>
+
+                    {/* Investment Concierge */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-3xl font-black text-white mb-6 uppercase tracking-tighter">
+                            <span className="text-amber-500">Punta</span> Intelligence
+                        </h2>
+                        <InvestmentConcierge price={myProperty.price.toString()} />
+                    </motion.div>
+                </div>
+
+                {/* AI Context Card */}
+                <div className="space-y-6">
+                    <Card className="bg-gradient-to-br from-amber-500/10 to-transparent border-amber-500/20 backdrop-blur-xl">
+                        <CardContent className="p-8">
+                            <div className="w-12 h-12 rounded-2xl bg-amber-500 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
+                                <Sparkles className="w-6 h-6 text-black" />
+                            </div>
+                            <h4 className="text-xl font-bold text-white mb-4">
+                                Herramientas de Venta de Nueva Generación
+                            </h4>
+                            <p className="text-white/70 text-sm leading-relaxed mb-6">
+                                Hemos activado estas funciones exclusivas para tu propiedad. Utilizan nuestra **IA propietaria** para reducir el tiempo de venta hasta en un 40%.
+                            </p>
+                            <div className="space-y-4">
+                                <div className="flex gap-3">
+                                    <div className="h-5 w-5 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 text-[10px] font-bold">1</div>
+                                    <p className="text-xs text-white/60">**Staging:** Los compradores visualizan el potencial real.</p>
+                                </div>
+                                <div className="flex gap-3">
+                                    <div className="h-5 w-5 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 text-[10px] font-bold">2</div>
+                                    <p className="text-xs text-white/60">**Intelligence:** Argumentos financieros para el inversor.</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
 
             {/* Gallery Lightbox */}

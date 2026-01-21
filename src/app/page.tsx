@@ -12,14 +12,7 @@ export default function GatewayPage() {
       title: "Propietarios",
       description: "Gestiona tu propiedad, revisa el rendimiento y consulta tus reservas en tiempo real.",
       icon: Key,
-      href: "/owner/dashboard", // Direct to dashboard as 'Soy Propietario' implies login/app usage
-      // But wait, the previous plan said /owners (landing). 
-      // Let's link to the Landing Page (/owners) effectively acting as the "Door"
-      // Actually, usually a portal leads to login or app. Let's send to /owners landing first to sell the dream?
-      // User request: "cuando entren se puedan loguear como lo que quieran"
-      // So maybe direct to the respective areas. 
-      // Let's link to /owners for now, which has a login button.
-      link: "/owners",
+      link: "/marketplace", // Redirect to Marketplace so they see the properties and AI tools
       image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
       color: "from-amber-400 to-orange-500",
       glow: "group-hover:shadow-[0_0_50px_-12px_rgba(251,191,36,0.5)]"
@@ -85,8 +78,8 @@ export default function GatewayPage() {
             Bienvenido a <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500">Punta360</span>
           </h1>
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            La plataforma inmobiliaria integral más avanzada de Latinoamérica.
-            <br />Selecciona tu perfil para continuar.
+            La plataforma inmobiliaria integral con IA más avanzada de Latinoamérica.
+            <br />Selecciona tu perfil o explora el marketplace.
           </p>
         </motion.div>
 

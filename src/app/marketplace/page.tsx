@@ -12,7 +12,9 @@ import {
     Heart,
     Play,
     Sparkles,
-    X
+    X,
+    Zap,
+    TrendingUp
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -181,6 +183,20 @@ export default function MarketplacePage() {
         fetchProperties()
     }, [debouncedSearch, typeFilter, priceFilter])
 
+    // AI Showcase Property (Always visible for WOW effect)
+    const aiShowcaseProperty = {
+        id: "ai-showcase-1",
+        title: "Villa AI Intelligence - Preview",
+        address: "La Barra, Punta del Este",
+        price: 4500000,
+        property_type: "house",
+        type: "Villa",
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800",
+        specs: { beds: 5, baths: 6, m2: 850 },
+        has360: true,
+        isAIEnabled: true // Flag for special badge
+    }
+
     // Client-side filtering is removed, we use 'properties' directly as it IS the filtered result now.
     const filteredProperties = properties
 
@@ -274,6 +290,88 @@ export default function MarketplacePage() {
                             </Sheet>
                         </div>
                     </motion.div>
+                </div>
+            </div>
+
+            {/* AI Promoted Section */}
+            <div className="container mx-auto px-4 mb-20 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* The AI Showcase Card */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="lg:col-span-1 group relative bg-black/40 rounded-[2.5rem] overflow-hidden border border-amber-500/30 hover:border-amber-500 transition-all shadow-2xl shadow-amber-500/10 h-[450px]"
+                    >
+                        <div className="relative h-full">
+                            <img
+                                src={aiShowcaseProperty.image}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                alt=""
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+                            <div className="absolute top-6 left-6 flex gap-2">
+                                <Badge className="bg-amber-500 text-black font-bold border-none">AI POWERED</Badge>
+                                <Badge className="bg-black/60 backdrop-blur-md text-white border-white/20">Elite Listing</Badge>
+                            </div>
+
+                            <div className="absolute bottom-8 left-8 right-8">
+                                <h3 className="text-3xl font-black text-white mb-2 leading-tight uppercase tracking-tighter">
+                                    {aiShowcaseProperty.title}
+                                </h3>
+                                <div className="flex items-center gap-2 text-white/50 text-sm mb-6">
+                                    <MapPin className="w-4 h-4 text-amber-500" /> {aiShowcaseProperty.address}
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-2xl font-black text-amber-400">USD ${aiShowcaseProperty.price.toLocaleString()}</span>
+                                    <Link href={`/p/${aiShowcaseProperty.id}`}>
+                                        <Button size="lg" className="bg-white text-black hover:bg-amber-500 hover:text-white transition-all font-bold px-6 rounded-xl">
+                                            Probar Herramientas IA
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Feature Descriptions Card */}
+                    <div className="lg:col-span-2 hidden lg:flex flex-col justify-center p-12 bg-white/5 backdrop-blur-3xl rounded-[2.5rem] border border-white/5 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[100px] -mr-32 -mt-32" />
+
+                        <div className="relative z-10">
+                            <Badge className="w-fit mb-8 bg-amber-500/20 text-amber-500 border-amber-500/30 font-bold uppercase tracking-widest px-4 py-1.5">
+                                Innovación Punta360
+                            </Badge>
+                            <h2 className="text-5xl font-black text-white mb-10 uppercase tracking-tighter leading-none">
+                                Descubre el potencial <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-600">
+                                    Total de tu Futura Propiedad
+                                </span>
+                            </h2>
+
+                            <div className="grid grid-cols-2 gap-12">
+                                <div className="space-y-4 group/item">
+                                    <div className="h-14 w-14 rounded-2xl bg-amber-500 flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform">
+                                        <Zap className="w-7 h-7 text-black" />
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white">Staging Virtual IA</h4>
+                                    <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+                                        Visualiza diferentes estilos de diseño interior al instante con nuestro motor de IA generativa.
+                                    </p>
+                                </div>
+                                <div className="space-y-4 group/item">
+                                    <div className="h-14 w-14 rounded-2xl bg-cyan-500 flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform">
+                                        <TrendingUp className="w-7 h-7 text-white" />
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white">Punta Intelligence</h4>
+                                    <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+                                        Accede a proyecciones financieras precisas y análisis de rentabilidad impulsados por datos.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

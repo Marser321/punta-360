@@ -34,6 +34,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 
 export default function AISolutionsPage() {
     return (
@@ -134,6 +135,68 @@ export default function AISolutionsPage() {
             <section className="py-32 relative overflow-hidden">
                 <div className="container px-4">
                     <LiveWorkflowDemo />
+                </div>
+            </section>
+
+            {/* === NEW FEATURE SHOWCASE: AI TOOLS === */}
+            <section className="py-32 bg-slate-950 relative overflow-hidden" id="tools">
+                <div className="container px-4 relative z-10">
+                    <div className="text-center mb-20">
+                        <Badge className="bg-amber-500/20 text-amber-500 border-amber-500/30 mb-4">Innovation Suite</Badge>
+                        <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
+                            Herramientas de <span className="text-amber-500">Valor Real</span>
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {/* Creative Studio */}
+                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-amber-500/50 transition-all group flex flex-col h-full">
+                            <div className="h-16 w-16 rounded-2xl bg-amber-500 flex items-center justify-center mb-8 shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform">
+                                <Zap className="w-8 h-8 text-black" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4">AI Creative Studio</h3>
+                            <p className="text-white/50 mb-8 flex-grow">
+                                Generación automática de contenido para redes sociales. Sube tu logo y deja que la IA cree Reels y Posts cinematográficos de tus propiedades.
+                            </p>
+                            <Link href="/dashboard/creative-studio">
+                                <Button className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold rounded-xl">
+                                    Ir al Laboratorio AI
+                                </Button>
+                            </Link>
+                        </div>
+
+                        {/* Staging */}
+                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all group flex flex-col h-full">
+                            <div className="h-16 w-16 rounded-2xl bg-purple-500 flex items-center justify-center mb-8 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                                <Layers className="w-8 h-8 text-white" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4">Virtual Staging IA</h3>
+                            <p className="text-white/50 mb-8 flex-grow">
+                                Visualización interactiva de espacios. Transforma ambientes vacíos en lujosos sets minimalistas o clásicos instantáneamente.
+                            </p>
+                            <Link href="/marketplace">
+                                <Button variant="outline" className="w-full border-purple-500/30 text-purple-400 font-bold rounded-xl hover:bg-purple-500/10">
+                                    Ver Demo en Marketplace
+                                </Button>
+                            </Link>
+                        </div>
+
+                        {/* Intelligence */}
+                        <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all group flex flex-col h-full">
+                            <div className="h-16 w-16 rounded-2xl bg-cyan-500 flex items-center justify-center mb-8 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
+                                <BarChart3 className="w-8 h-8 text-white" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4">Punta Intelligence</h3>
+                            <p className="text-white/50 mb-8 flex-grow">
+                                Concierge de inversión. ROI, Yield y proyecciones de plusvalía calculadas por redes neuronales para inversores de élite.
+                            </p>
+                            <Link href="/marketplace">
+                                <Button variant="outline" className="w-full border-cyan-500/30 text-cyan-400 font-bold rounded-xl hover:bg-cyan-500/10">
+                                    Explorar Analíticas
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </section>
 
