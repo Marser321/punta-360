@@ -103,6 +103,7 @@ interface Viewer360Props {
     className?: string
     // Backward compatibility props
     imageUrl?: string
+    panoramaUrl?: string // Alias for imageUrl
     hotspots?: Hotspot[]
 }
 
@@ -112,12 +113,13 @@ export function Viewer360({
     autoRotate = true,
     className,
     imageUrl: legacyUrl,
+    panoramaUrl,
     hotspots: legacyHotspots
 }: Viewer360Props) {
     // Normalize props: If legacy props used, create a single scene
     const effectiveScenes = scenes.length > 0 ? scenes : [{
         id: 'default',
-        imageUrl: legacyUrl || '',
+        imageUrl: panoramaUrl || legacyUrl || '',
         name: 'Main View',
         hotspots: legacyHotspots || []
     }]
