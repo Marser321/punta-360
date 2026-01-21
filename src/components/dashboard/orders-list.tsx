@@ -39,7 +39,7 @@ interface ServiceOrder {
     }
 }
 
-const statusConfig = {
+const statusConfig: Record<string, { label: string; icon: React.ComponentType<{ className?: string }>; color: string; animate?: boolean }> = {
     pending: {
         label: "Pendiente",
         icon: Clock,
